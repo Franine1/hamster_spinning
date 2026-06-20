@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	var movement := Input.get_vector("Move Left","Move Right","Move Up","Move Down")
 	
 	if movement:
-		var axis = (movement.max_axis_index())
+		var axis = movement.round()
 		#movement *= Vector2(1-axis,axis)
 		#movement = movement.normalized()
 		
