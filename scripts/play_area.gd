@@ -6,6 +6,7 @@ extends TileMapLayer
 @onready var camera: Camera2D = %Camera2D
 
 
+
 func _ready() -> void:
 	reset()
 

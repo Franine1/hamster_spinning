@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://c0sfjdkgn7lqu" path="res://resources/tilesets/default_tileset.tres" id="1_0kvkb"]
 [ext_resource type="Script" uid="uid://dakxv2fvwd5vk" path="res://scripts/play_area.gd" id="1_vkivv"]
 [ext_resource type="Script" uid="uid://c4k1pum2ap351" path="res://scripts/play_camera.gd" id="3_tt2bq"]
+[ext_resource type="Script" uid="uid://gn3taa04k7sx" path="res://level_object.gd" id="4_rsx1v"]
+[ext_resource type="Resource" uid="uid://cubaq7umb5a1c" path="res://resources/structures/new_resource.tres" id="5_gbr35"]
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=1186091628]
 tile_set = ExtResource("1_0kvkb")
@@ -11,3 +13,8 @@ script = ExtResource("1_vkivv")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1628964110]
 unique_name_in_owner = true
 script = ExtResource("3_tt2bq")
+
+[node name="LevelObject" type="StaticBody2D" parent="." unique_id=606334739]
+script = ExtResource("4_rsx1v")
+template = ExtResource("5_gbr35")
+metadata/_custom_type_script = "uid://gn3taa04k7sx"

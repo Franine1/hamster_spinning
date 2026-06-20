@@ -57,6 +57,10 @@ window/stretch/aspect="expand"
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Structures"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
