@@ -17,7 +17,10 @@ func _ready() -> void:
 	if template != null:
 		get_tree().create_timer(0.1).timeout.connect(refresh)
 
+
+## Corrects the sprite2D and collision shape based on the input structure
 func refresh(input: Structure = template) -> void:
+	template = input
 	
 	var bounds = input.size
 	
