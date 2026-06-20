@@ -1,10 +1,16 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+### Developers
+[Matthew Lisko](https://franine1.itch.io/)
+[Connor Floyd](https://xenoyle.itch.io/)
+[James Plant](https://rune123.itch.io/)
+
+### Artists
+Abbey Pierce
+
+### Music and SFX
+[James Plant](https://rune123.itch.io/)
 
 ## Sourced
 ### Asset Type
