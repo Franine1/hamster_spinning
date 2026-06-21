@@ -16,11 +16,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+game_scene_path = "uid://b31bxcofmhyst"
 
 [node name="UISoundController" type="Node" parent="." unique_id=1619985599]
 script = ExtResource("6_bs342")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=1141822549 instance=ExtResource("4_w8sbm")]
+bus = &"Master"
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1940176448]
 layout_mode = 1
@@ -56,7 +58,7 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "Title"
+text = "Hamster Factory"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_j7612")

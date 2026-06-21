@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://c0sfjdkgn7lqu" path="res://resources/tilesets/default_tileset.tres" id="1_0kvkb"]
 [ext_resource type="Script" uid="uid://dakxv2fvwd5vk" path="res://scripts/play_area.gd" id="1_vkivv"]
 [ext_resource type="Script" uid="uid://c4k1pum2ap351" path="res://scripts/play_camera.gd" id="3_tt2bq"]
-[ext_resource type="Script" uid="uid://gn3taa04k7sx" path="res://level_object.gd" id="4_rsx1v"]
+[ext_resource type="Script" uid="uid://gn3taa04k7sx" path="res://scripts/level_object.gd" id="4_rsx1v"]
 [ext_resource type="Resource" uid="uid://ohbmblgfsdon" path="res://resources/structures/main_wheel.tres" id="5_rsx1v"]
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=1186091628]

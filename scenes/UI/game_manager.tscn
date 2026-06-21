@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b31bxcofmhyst"]
+
+[ext_resource type="PackedScene" uid="uid://diorcvh56bqpg" path="res://scenes/play area/play_area.tscn" id="1_01db0"]
+[ext_resource type="PackedScene" uid="uid://fpn7ex7fdk4w" path="res://scenes/UI/main-user-interface.tscn" id="2_aqc0r"]
+
+[node name="GameManager" type="Control" unique_id=255460626]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=776031567]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1216573127]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="TileMapLayer" parent="SubViewportContainer/SubViewport" unique_id=1186091628 instance=ExtResource("1_01db0")]
+
+[node name="Control" parent="." unique_id=476897754 instance=ExtResource("2_aqc0r")]
+layout_mode = 1

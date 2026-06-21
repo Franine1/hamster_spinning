@@ -82,13 +82,13 @@ theme/custom="res://menu-template/resources/themes/expedition.tres"
 ]
 }
 
-[layer_names]
-
-2d_physics/layer_1="Structures"
-
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
+
+[layer_names]
+
+2d_physics/layer_1="Structures"
 
 [maaacks_menus_template]
 

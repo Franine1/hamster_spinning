@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://fpn7ex7fdk4w"]
 
+[ext_resource type="Script" uid="uid://cqxwpq8l8c70x" path="res://scenes/UI/main_user_interface.gd" id="1_7meb5"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn0t7"]
 draw_center = false
 border_width_bottom = 2
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7meb5")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=600583528]
 layout_mode = 1
@@ -33,13 +36,14 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=887782821]
+[node name="HP_container" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=887782821]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(136, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=1019017944]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/HP_container" unique_id=1019017944]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -50,7 +54,8 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=890556832]
+[node name="HP_value" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/HP_container" unique_id=890556832]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -60,7 +65,8 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=299473590]
+[node name="HP_rate" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/HP_container" unique_id=299473590]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -71,13 +77,14 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1277688583]
+[node name="money_container" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1277688583]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(136, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=1119246118]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/money_container" unique_id=1119246118]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -88,7 +95,8 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=1368959341]
+[node name="money_value" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/money_container" unique_id=1368959341]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -98,7 +106,8 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=885265687]
+[node name="money_rate" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/money_container" unique_id=885265687]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -109,13 +118,14 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=696386338]
+[node name="food_container" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=696386338]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(136, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer3" unique_id=569731190]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/food_container" unique_id=569731190]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -126,7 +136,8 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer3" unique_id=1418047326]
+[node name="food_value" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/food_container" unique_id=1418047326]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -136,7 +147,8 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer3" unique_id=1155931098]
+[node name="food_rate" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/food_container" unique_id=1155931098]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
