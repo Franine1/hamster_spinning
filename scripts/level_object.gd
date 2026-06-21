@@ -85,12 +85,23 @@ func _process(delta: float) -> void:
 			
 			var game = GameData.get_game()
 			
-			if template.HP_output != 0.0:
-				game.change_HP(template.HP_output * delta)
+			var best_rate = delta
 			
-			if template.money_output != 0.0:
-				game.change_money(template.money_output * delta)
+			if template.HP_input != 0.0:
+				best_rate = min(best_rate,game.get_HP()/template.HP_input)
+			
+			if template.money_input != 0.0:
+				best_rate = min(best_rate,game.get_HP()/template.money_input)
+			
+			if template.food_input != 0.0:
+				best_rate = min(best_rate,game.get_HP()/template.food_input)
+			
+			
+			
+			game.change_HP((template.HP_output-template.HP_input) * best_rate)
+			
+			game.change_money((template.money_output-template.money_input) * best_rate)
 				
-			if template.food_output != 0.0:
-				game.change_food(template.food_output * delta)
+			game.change_food((template.food_output-template.food_input) * best_rate)
+			
 			

@@ -27,12 +27,16 @@ func _process(delta: float) -> void:
 	match current_state:
 		state.GAME:
 			game_VP.handle_input_locally = true
+			%"game container".mouse_target = true
 			shop_VP.handle_input_locally = false
+			%"shop container".mouse_target = false
 			glide_VP_towards(0.0,delta*2.0)
 			
 		state.SHOP:
 			game_VP.handle_input_locally = false
+			%"game container".mouse_target = false
 			shop_VP.handle_input_locally = true
+			%"shop container".mouse_target = true
 			glide_VP_towards(-0.5,delta*2.0)
 			
 			

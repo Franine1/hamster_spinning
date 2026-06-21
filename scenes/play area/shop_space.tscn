@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bxlu6npyhnogh"]
+
+[ext_resource type="Script" uid="uid://bfu0q8b0ys7gs" path="res://shop_space.gd" id="1_6dqay"]
+
+[node name="shop_space" type="ItemList" unique_id=105887212]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+allow_search = false
+max_columns = 36
+script = ExtResource("1_6dqay")
