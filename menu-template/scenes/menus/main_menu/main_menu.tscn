@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://2ntqp4n8erfq"]
+
+[ext_resource type="PackedScene" path="res://addons/maaacks_menus_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_berfd"]
+[ext_resource type="Script" path="res://menu-template/scenes/menus/main_menu/main_menu.gd" id="2_gfn3x"]
+[ext_resource type="PackedScene" path="res://menu-template/scenes/windows/main_menu_options_window.tscn" id="3_7rfjy"]
+[ext_resource type="PackedScene" path="res://menu-template/scenes/windows/main_menu_credits_window.tscn" id="4_hxwr0"]
+
+[node name="MainMenu" unique_id=869232425 instance=ExtResource("1_berfd")]
+script = ExtResource("2_gfn3x")
+options_packed_scene = ExtResource("3_7rfjy")
+credits_packed_scene = ExtResource("4_hxwr0")
