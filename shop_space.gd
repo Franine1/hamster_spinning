@@ -20,7 +20,8 @@ func display_items() -> void:
 	
 	deselect_all()
 	
-	for struct in allowed_structures:
+	for i in allowed_structures.size():
+		var struct: Structure = allowed_structures[i]
 		var img: ImageTexture = ImageTexture.create_from_image(struct.image.get_image())
 		img.set_size_override(Vector2(struct.size))
 		
@@ -29,9 +30,10 @@ func display_items() -> void:
 		set_item_tooltip(indx,struct.tooltip())
 		set_item_tooltip_enabled(indx,true)
 		
-		
+		linked_list[indx] = i
 
 func _process(delta: float) -> void:
+	var game: GameData = GameData.get_game()
 	
 	var id = get_item_at_position(get_global_mouse_position() + (Vector2(get_window().size) * Vector2(1.0,0.0)),true)
 	
@@ -39,7 +41,7 @@ func _process(delta: float) -> void:
 		select(id)
 		
 		if Input.is_action_just_pressed("Place Structure"):
-			pass
+			game.set_blueprint(allowed_structures[linked_list[id]])
 	else:
 		deselect_all()
 	

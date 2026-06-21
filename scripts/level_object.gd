@@ -30,6 +30,10 @@ func _ready() -> void:
 func refresh(input: Structure = template) -> void:
 	template = input
 	
+	if template == null:
+		sprite.texture = null
+		return
+	
 	var bounds = input.size
 	
 	sprite.texture = input.image
@@ -50,29 +54,37 @@ func place(pos: Vector2) -> void:
 	global_position = (32.0 * (pos/32.0).floor()) + placement_offset
 
 func _process(delta: float) -> void:
+	var game: GameData = GameData.get_game()
+	
 	
 	match placement_mode:
 		mode.WAITING:
 			visible = false
 		mode.HOVER:
-			visible = true
-			collision_layer = 0
-			collision_mask = 1
-			z_index = 20
-			modulate = Color(1.0,1.0,1.0,0.75)
-			place(get_global_mouse_position())
-			
-			
-			if !test_move(transform,Vector2.ZERO,null,0.08,true):
-				if Input.is_action_just_pressed("Place Structure"):
-					#placement_mode = mode.PLACED
-					
-					var temp = self.duplicate()
-					temp.placement_mode = mode.PLACED
-					add_sibling(temp)
-					#print("placed")
+			if template == null:
+				visible = false
+				
 			else:
-				pass
+			
+				visible = true
+				collision_layer = 0
+				collision_mask = 1
+				z_index = 20
+				modulate = Color(1.0,1.0,1.0,0.75)
+				place(get_global_mouse_position())
+				
+				
+				if !test_move(transform,Vector2.ZERO,null,0.08,true):
+					if Input.is_action_just_pressed("Place Structure"):
+						#placement_mode = mode.PLACED
+						
+						var temp = self.duplicate()
+						temp.placement_mode = mode.PLACED
+						add_sibling(temp)
+						game.set_blueprint()
+						#print("placed")
+				else:
+					pass
 			
 			
 			
@@ -83,7 +95,6 @@ func _process(delta: float) -> void:
 			z_index = 19
 			modulate = Color(1.0,1.0,1.0,1.0)
 			
-			var game = GameData.get_game()
 			
 			var best_rate = delta
 			

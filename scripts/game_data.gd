@@ -11,6 +11,8 @@ var hp_recordings: Dictionary[float,float] = {}
 var money_recordings: Dictionary[float,float] = {}
 var food_recordings: Dictionary[float,float] = {}
 
+var current_blueprint: Structure = null
+
 static func _static_init() -> void:
 	if (main == null) or !(main is GameData):
 		var temp: GameData = GameData.new()
@@ -116,3 +118,9 @@ func accrue_additions(input: Dictionary[float,float]) -> float:
 	ans /= divisor
 	
 	return ans
+
+func set_blueprint(input: Structure = null) -> void:
+	current_blueprint = input
+
+func get_blueprint() -> Structure:
+	return current_blueprint

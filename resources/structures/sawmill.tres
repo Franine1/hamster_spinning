@@ -7,7 +7,7 @@
 script = ExtResource("2_e0c23")
 image = ExtResource("1_jtxsg")
 size = Vector2i(64, 64)
-HP_input = -0.1
+HP_input = 0.1
 money_output = 0.25
 price = 30.0
 purchase_resource = 1

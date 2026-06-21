@@ -10,16 +10,22 @@ var current_state: state = state.GAME
 
 enum state {
 	GAME,
-	SHOP
+	SHOP,
+	BLUEPRINT
 }
 
 
 func _process(delta: float) -> void:
+	var game: GameData = GameData.get_game()
+	
 	if Input.is_action_just_pressed("Switch Screen"):
 		match current_state:
 			state.GAME:
 				current_state = state.SHOP
 			state.SHOP:
+				current_state = state.GAME
+			state.BLUEPRINT:
+				game.set_blueprint()
 				current_state = state.GAME
 	
 	
@@ -39,6 +45,18 @@ func _process(delta: float) -> void:
 			%"shop container".mouse_target = true
 			glide_VP_towards(-0.5,delta*2.0)
 			
+			if game.get_blueprint() != null:
+				current_state = state.BLUEPRINT
+		
+		state.BLUEPRINT:
+			game_VP.handle_input_locally = true
+			%"game container".mouse_target = true
+			shop_VP.handle_input_locally = false
+			%"shop container".mouse_target = false
+			glide_VP_towards(0.0,delta*2.0)
+			
+			if game.get_blueprint() == null:
+				current_state = state.GAME
 			
 
 
