@@ -17,6 +17,7 @@ script = ExtResource("3_tt2bq")
 [node name="object_placer" type="StaticBody2D" parent="." unique_id=606334739]
 unique_name_in_owner = true
 script = ExtResource("4_rsx1v")
+placement_mode = 1
 metadata/_custom_type_script = "uid://gn3taa04k7sx"
 
 [node name="wheel_base" type="StaticBody2D" parent="." unique_id=2140597088]

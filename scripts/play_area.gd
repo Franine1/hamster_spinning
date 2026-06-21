@@ -22,3 +22,15 @@ func reset() -> void:
 	temp.position *= 32.0
 	temp.size *= 32.0
 	camera.bounds = temp
+
+var time_count: float = 0.0
+
+func _process(delta: float) -> void:
+	
+	time_count += delta
+	
+	if time_count >= 0.25:
+		
+		time_count -= 0.25
+		
+		print(GameData.get_game().get_HP())
