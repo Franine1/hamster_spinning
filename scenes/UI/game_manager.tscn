@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b31bxcofmhyst"]
 
 [ext_resource type="PackedScene" uid="uid://diorcvh56bqpg" path="res://scenes/play area/play_area.tscn" id="1_01db0"]
+[ext_resource type="Script" uid="uid://cpblqd26u1df8" path="res://scenes/UI/game_manager.gd" id="1_tl5mg"]
 [ext_resource type="PackedScene" uid="uid://fpn7ex7fdk4w" path="res://scenes/UI/main-user-interface.tscn" id="2_aqc0r"]
 
 [node name="GameManager" type="Control" unique_id=255460626]
@@ -8,25 +9,74 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tl5mg")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=776031567]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1797626704]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=581701525]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=1272418852]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/Control2" unique_id=476897754 instance=ExtResource("2_aqc0r")]
+layout_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/Control2" unique_id=1212849530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press SHIFT to view upgrades"
+
+[node name="empty node" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=179880719]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="playable windows" type="HBoxContainer" parent="VBoxContainer" unique_id=769805285]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 18.0
+offset_transform_enabled = true
+
+[node name="game container" type="SubViewportContainer" parent="VBoxContainer/playable windows" unique_id=776031567]
+layout_mode = 2
+size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1216573127]
+[node name="game viewport" type="SubViewport" parent="VBoxContainer/playable windows/game container" unique_id=1216573127]
+unique_name_in_owner = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(1152, 648)
+size = Vector2i(1150, 580)
 render_target_update_mode = 4
 
-[node name="TileMapLayer" parent="SubViewportContainer/SubViewport" unique_id=1186091628 instance=ExtResource("1_01db0")]
+[node name="TileMapLayer" parent="VBoxContainer/playable windows/game container/game viewport" unique_id=1186091628 instance=ExtResource("1_01db0")]
 
-[node name="Control" parent="." unique_id=476897754 instance=ExtResource("2_aqc0r")]
-layout_mode = 1
+[node name="shop container" type="SubViewportContainer" parent="VBoxContainer/playable windows" unique_id=1643333875]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="shop viewport" type="SubViewport" parent="VBoxContainer/playable windows/shop container" unique_id=537666276]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1150, 580)
+render_target_update_mode = 4

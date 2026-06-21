@@ -2,7 +2,7 @@ class_name PlayArea
 extends TileMapLayer
 
 
-@export var bounds: Rect2i = Rect2i(-18,-10,36,20)
+@export var bounds: Rect2i = Rect2i(-18,-9,36,18)
 @onready var camera: Camera2D = %Camera2D
 
 
