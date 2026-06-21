@@ -3,11 +3,7 @@ extends ItemList
 
 
 
-const allowed_structures: Array[Structure] = [
-	preload("res://resources/structures/plastic_wheel.tres")
-	,preload("res://resources/structures/sawmill.tres")
-	,preload("res://resources/structures/feeder.tres")
-]
+@export var allowed_structures: Array[Structure] = []
 
 var linked_list: Dictionary[int,int]
 
@@ -27,8 +23,8 @@ func display_items() -> void:
 		
 		var indx: int = add_item(struct.description,img,true)
 		
-		set_item_tooltip(indx,struct.tooltip())
-		set_item_tooltip_enabled(indx,true)
+		#set_item_tooltip(indx,struct.tooltip())
+		#set_item_tooltip_enabled(indx,true)
 		
 		linked_list[indx] = i
 
@@ -38,11 +34,21 @@ func _process(delta: float) -> void:
 	var id = get_item_at_position(get_global_mouse_position() + (Vector2(get_window().size) * Vector2(1.0,0.0)),true)
 	
 	if id != -1 and get_viewport().handle_input_locally:
+		game.set_tooltip(allowed_structures[linked_list[id]].tooltip())
 		select(id)
 		
 		if Input.is_action_just_pressed("Place Structure"):
-			game.set_blueprint(allowed_structures[linked_list[id]])
+			var bp: Structure = allowed_structures[linked_list[id]]
+			var cost: Vector3 = bp.cost()
+			if Structure.affordable(cost):
+				Structure.expend(cost)
+				game.set_blueprint(bp)
+			else:
+				# cannot afford structure
+				pass
 	else:
+		if get_viewport().handle_input_locally:
+			game.set_tooltip()
 		deselect_all()
 	
 	#print(get_tooltip(get_local_mouse_position()))

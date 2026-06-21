@@ -12,6 +12,9 @@ var money_recordings: Dictionary[float,float] = {}
 var food_recordings: Dictionary[float,float] = {}
 
 var current_blueprint: Structure = null
+var current_tooltip: String = ""
+var tooltip_timer: float = -1.0
+var tooltip_start: float = 0.0
 
 static func _static_init() -> void:
 	if (main == null) or !(main is GameData):
@@ -25,6 +28,8 @@ static func get_game() -> GameData:
 		main = temp
 	
 	return main
+
+
 
 func get_HP() -> float:
 	return hamster_power
@@ -124,3 +129,20 @@ func set_blueprint(input: Structure = null) -> void:
 
 func get_blueprint() -> Structure:
 	return current_blueprint
+
+func set_tooltip(input: String = "", time: float = -1.0) -> void:
+	current_tooltip = input
+	
+	if time > 0.0:
+		tooltip_timer = time
+		tooltip_start = Time.get_unix_time_from_system()
+	else:
+		tooltip_timer = -1.0
+
+func get_tooltip() -> String:
+	
+	if tooltip_timer >= 0.0:
+		if Time.get_unix_time_from_system() >= (tooltip_timer + tooltip_start):
+			return ""
+	
+	return current_tooltip

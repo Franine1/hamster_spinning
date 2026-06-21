@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bxlu6npyhnogh"]
 
 [ext_resource type="Script" uid="uid://bfu0q8b0ys7gs" path="res://shop_space.gd" id="1_6dqay"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_0k5pd"]
+[ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/plastic_wheel.tres" id="3_gum0k"]
+[ext_resource type="Resource" uid="uid://cubaq7umb5a1c" path="res://resources/structures/sawmill.tres" id="4_358l6"]
+[ext_resource type="Resource" uid="uid://852s64oc6ra7" path="res://resources/structures/feeder.tres" id="5_8o1ua"]
 
 [node name="shop_space" type="ItemList" unique_id=105887212]
 anchors_preset = 15
@@ -11,3 +15,4 @@ grow_vertical = 2
 allow_search = false
 max_columns = 36
 script = ExtResource("1_6dqay")
+allowed_structures = Array[ExtResource("2_0k5pd")]([ExtResource("3_gum0k"), ExtResource("4_358l6"), ExtResource("5_8o1ua")])

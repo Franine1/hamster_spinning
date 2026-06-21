@@ -7,6 +7,10 @@
 script = ExtResource("2_yda3x")
 image = ExtResource("1_85qxd")
 size = Vector2i(128, 128)
-HP_output = 0.2
+food_input = 0.5
+HP_output = 1.0
+price = 100.0
 description = "Plastic Wheel"
+tooltip_hint = "Hire a mouse to help your factory out!"
+upgrade_tree = Array[int]([1])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

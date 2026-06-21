@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dc8776pgafhft"]
+
+[ext_resource type="Script" uid="uid://sar2d3wlid1d" path="res://scenes/UI/cursor_tooltip.gd" id="1_6b457"]
+
+[node name="cursor_tooltip" type="Node2D" unique_id=2097758532]
+z_index = 1000
+script = ExtResource("1_6b457")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=214263237]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer" unique_id=956057516]
+layout_mode = 2
+ratio = 1.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/AspectRatioContainer" unique_id=656521397]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(600, -1)
+layout_mode = 2
+fit_content = true
+scroll_active = false

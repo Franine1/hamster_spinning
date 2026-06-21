@@ -23,8 +23,10 @@ func _process(delta: float) -> void:
 			state.GAME:
 				current_state = state.SHOP
 			state.SHOP:
+				game.set_tooltip()
 				current_state = state.GAME
 			state.BLUEPRINT:
+				Structure.expend(-game.get_blueprint().cost())
 				game.set_blueprint()
 				current_state = state.GAME
 	
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 			glide_VP_towards(-0.5,delta*2.0)
 			
 			if game.get_blueprint() != null:
+				game.set_tooltip()
 				current_state = state.BLUEPRINT
 		
 		state.BLUEPRINT:
