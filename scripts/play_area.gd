@@ -23,7 +23,7 @@ func reset() -> void:
 	temp.size *= 32.0
 	camera.bounds = temp
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var game: GameData = GameData.get_game()
 	var bp: Structure = game.get_blueprint()
 	

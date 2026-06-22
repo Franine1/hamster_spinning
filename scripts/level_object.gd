@@ -94,6 +94,7 @@ func _process(delta: float) -> void:
 						temp.placement_mode = mode.PLACED
 						add_sibling(temp)
 						game.set_blueprint()
+						game.add_unlocks(template)
 						#print("placed")
 				else:
 					pass

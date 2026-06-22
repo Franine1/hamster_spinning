@@ -16,6 +16,8 @@ var current_tooltip: String = ""
 var tooltip_timer: float = -1.0
 var tooltip_start: float = 0.0
 
+var unlocks: Dictionary[int,int]
+
 static func _static_init() -> void:
 	if (main == null) or !(main is GameData):
 		var temp: GameData = GameData.new()
@@ -146,3 +148,28 @@ func get_tooltip() -> String:
 			return ""
 	
 	return current_tooltip
+
+func add_unlocks(input: Structure) -> void:
+	for i in input.upgrade_tree:
+		
+		if unlocks.has(i):
+			unlocks[i] = max(input.tier+1,unlocks[i])
+		else:
+			unlocks[i] = input.tier+1
+
+
+
+func is_unlocked(input: Structure) -> bool:
+	
+	var ans = input.upgrade_tree.size() == 0
+	
+	for i in input.upgrade_tree:
+		if !unlocks.has(i):
+			unlocks[i] = 0
+		
+		ans = (unlocks[i] >= input.tier)
+		
+		if ans:
+			return ans
+	
+	return ans

@@ -11,6 +11,7 @@ food_input = 3.0
 HP_output = 5.0
 price = 500.0
 description = "Wooden Wheel"
+tooltip_hint = "Upgrade one of your mouse wheels to increase production!"
 tier = 1
 upgrade_tree = Array[int]([1])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

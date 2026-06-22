@@ -40,7 +40,7 @@ func tooltip() -> String:
 	if (money_output - money_input):
 		ans = ans + "money production: " + str(money_output - money_input) + "\n"
 	if (food_output - food_input):
-		ans = ans + "food production: " + str(HP_output - HP_input) + "\n"
+		ans = ans + "food production: " + str(food_output - food_input) + "\n"
 	if (price != 0.0):
 		const names: Array[String] = ["$","Hamster Power","Food"]
 		if purchase_resource == material_type.MONEY:
@@ -71,6 +71,7 @@ static func affordable(input: Vector3) -> bool:
 			return false
 	
 	return true
+
 
 
 static func expend(input: Vector3) -> void:

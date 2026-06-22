@@ -7,6 +7,8 @@ extends ItemList
 
 var linked_list: Dictionary[int,int]
 
+var refresh_time: float = 0.0
+
 func _ready() -> void:
 	display_items()
 	icon_mode = ItemList.ICON_MODE_TOP
@@ -27,8 +29,28 @@ func display_items() -> void:
 		#set_item_tooltip_enabled(indx,true)
 		
 		linked_list[indx] = i
+	
+	refresh_display()
 
-func _process(delta: float) -> void:
+
+func refresh_display() -> void:
+	var game: GameData = GameData.get_game()
+	
+	for i in linked_list.keys():
+		
+		var struct: Structure = allowed_structures[linked_list[i]]
+		
+		set_item_disabled(i,!game.is_unlocked(struct))
+		
+		#set_item
+
+
+func _process(_delta: float) -> void:
+	refresh_time += _delta
+	if refresh_time >= 0.5:
+		refresh_time -= 0.5
+		refresh_display()
+	
 	var game: GameData = GameData.get_game()
 	
 	var id = get_item_at_position(get_global_mouse_position() + (Vector2(get_window().size) * Vector2(1.0,0.0)),true)
