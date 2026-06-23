@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcyhwekky3f4r"
+path="res://.godot/imported/Heavy Gun Reload.wav-afc80f40d934b16245eff8e1a62f85a9.sample"
+
+[deps]
+
+source_file="res://sfx/sound library/Heavy Gun Reload.wav"
+dest_files=["res://.godot/imported/Heavy Gun Reload.wav-afc80f40d934b16245eff8e1a62f85a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi0vgm84f6vxb"
+path="res://.godot/imported/Falling Blocks.wav-f1289d9504482cc3b4aa9062e769561f.sample"
+
+[deps]
+
+source_file="res://music/Falling Blocks.wav"
+dest_files=["res://.godot/imported/Falling Blocks.wav-f1289d9504482cc3b4aa9062e769561f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

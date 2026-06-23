@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://butm4a15vgjnr"
+path="res://.godot/imported/energypickup.wav-7b3964fa91d2ffc6206203ecf03d6c77.sample"
+
+[deps]
+
+source_file="res://sfx/satellite sounds/energypickup.wav"
+dest_files=["res://.godot/imported/energypickup.wav-7b3964fa91d2ffc6206203ecf03d6c77.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
