@@ -24,11 +24,17 @@ func _ready() -> void:
 	add_child(collider)
 	if template != null:
 		get_tree().create_timer(0.1).timeout.connect(refresh)
+	
+	
 
 
 ## Corrects the sprite2D and collision shape based on the input structure
 func refresh(input: Structure = template) -> void:
 	template = input
+	
+	if template == null:
+		sprite.texture = null
+		return
 	
 	var bounds = input.size
 	
@@ -49,30 +55,49 @@ func refresh(input: Structure = template) -> void:
 func place(pos: Vector2) -> void:
 	global_position = (32.0 * (pos/32.0).floor()) + placement_offset
 
+func contacts(pos: Vector2) -> bool:
+	var space: Rect2 = Rect2(global_position - placement_offset,placement_offset * 2)
+	
+	return space.has_point(pos)
+
+func click_reaction() -> void:
+	pass
+
+
 func _process(delta: float) -> void:
+	var game: GameData = GameData.get_game()
+	
+	var mouse_pos: Vector2 = get_global_mouse_position()
 	
 	match placement_mode:
 		mode.WAITING:
 			visible = false
 		mode.HOVER:
-			visible = true
-			collision_layer = 0
-			collision_mask = 1
-			z_index = 20
-			modulate = Color(1.0,1.0,1.0,0.75)
-			place(get_global_mouse_position())
-			
-			
-			if !test_move(transform,Vector2.ZERO,null,0.08,true):
-				if Input.is_action_just_pressed("Place Structure"):
-					#placement_mode = mode.PLACED
-					
-					var temp = self.duplicate()
-					temp.placement_mode = mode.PLACED
-					add_sibling(temp)
-					#print("placed")
+			if template == null:
+				visible = false
+				
 			else:
-				pass
+			
+				visible = true
+				collision_layer = 0
+				collision_mask = 1
+				z_index = 20
+				modulate = Color(1.0,1.0,1.0,0.75)
+				place(mouse_pos)
+				
+				
+				if !test_move(transform,Vector2.ZERO,null,0.08,true):
+					if Input.is_action_just_pressed("Place Structure"):
+						#placement_mode = mode.PLACED
+						
+						var temp = self.duplicate()
+						temp.placement_mode = mode.PLACED
+						add_sibling(temp)
+						game.set_blueprint()
+						game.add_unlocks(template)
+						#print("placed")
+				else:
+					pass
 			
 			
 			
@@ -83,14 +108,32 @@ func _process(delta: float) -> void:
 			z_index = 19
 			modulate = Color(1.0,1.0,1.0,1.0)
 			
-			var game = GameData.get_game()
-			
-			if template.HP_output != 0.0:
-				game.change_HP(template.HP_output * delta)
-			
-			if template.money_output != 0.0:
-				game.change_money(template.money_output * delta)
+			if contacts(mouse_pos) and template.clickable and game.get_blueprint() == null:
 				
-			if template.food_output != 0.0:
-				game.change_food(template.food_output * delta)
+				game.set_tooltip("Click to boost!",0.033)
+				
+				if Input.is_action_just_pressed("Place Structure"):
+					game.change_HP(template.HP_output)
+					game.change_money(template.money_output)
+					game.change_HP(template.food_output)
+			
+			var best_rate = delta
+			
+			if template.HP_input != 0.0:
+				best_rate = min(best_rate,game.get_HP()/template.HP_input)
+			
+			if template.money_input != 0.0:
+				best_rate = min(best_rate,game.get_money()/template.money_input)
+			
+			if template.food_input != 0.0:
+				best_rate = min(best_rate,game.get_food()/template.food_input)
+			
+			
+			
+			game.change_HP((template.HP_output-template.HP_input) * best_rate)
+			
+			game.change_money((template.money_output-template.money_input) * best_rate)
+				
+			game.change_food((template.food_output-template.food_input) * best_rate)
+			
 			
