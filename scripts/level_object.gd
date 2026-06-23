@@ -111,7 +111,7 @@ func _process(delta: float) -> void:
 				
 				var collision = test_move(transform,Vector2.ZERO,null,0.08,true)
 				
-				if !collision or template.tier > 0:
+				if (!collision or template.tier > 0) and (template.tier == 0 or coordinate_index != -1):
 					recoloration(Color.GREEN)
 					
 					if Input.is_action_just_pressed("Place Structure"):
