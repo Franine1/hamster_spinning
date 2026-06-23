@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://65qot5rjkxer"
+path="res://.godot/imported/Weapon Whoosh.wav-b1e48ccb4d7e323d9a37055ec2ac6816.sample"
+
+[deps]
+
+source_file="res://sfx/sound library/Weapon Whoosh.wav"
+dest_files=["res://.godot/imported/Weapon Whoosh.wav-b1e48ccb4d7e323d9a37055ec2ac6816.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

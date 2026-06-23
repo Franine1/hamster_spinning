@@ -1,7 +1,8 @@
 class_name LevelObject
 extends StaticBody2D
 
-
+##audio on click
+@onready var click_sound = preload("res://sfx/sound library/UI & Menus/Click Bounce.wav")
 
 @export var template: Structure = null
 
@@ -16,10 +17,17 @@ enum mode {
 var collider: CollisionShape2D
 var sprite: Sprite2D
 var placement_offset: Vector2 = Vector2.ZERO
+var click_player: AudioStreamPlayer
 
 func _ready() -> void:
+
 	sprite = Sprite2D.new()
 	add_child(sprite)
+	##audio click
+	click_player = AudioStreamPlayer.new()
+	click_player.stream = click_sound
+	add_child(click_player)
+	##audio click
 	collider = CollisionShape2D.new()
 	add_child(collider)
 	if template != null:
@@ -113,6 +121,7 @@ func _process(delta: float) -> void:
 				game.set_tooltip("Click to boost!",0.033)
 				
 				if Input.is_action_just_pressed("Place Structure"):
+					click_player.play()
 					game.change_HP(template.HP_output)
 					game.change_money(template.money_output)
 					game.change_HP(template.food_output)
