@@ -16,6 +16,7 @@ extends Resource
 @export var food_output: float = 0.0
 @export var clickable: bool = false
 @export var indestructible: bool = false
+@export var feature_copy_mode: mode = mode.REPLACE
 
 @export_category("Shop")
 @export var price: float = 0.0
@@ -32,6 +33,12 @@ enum material_type {
 	FOOD
 }
 
+enum mode {
+	REPLACE,
+	COPY,
+	COMPARE_AND,
+	COMPARE_OR
+}
 
 func tooltip() -> String:
 	var ans: String = ""
@@ -83,3 +90,14 @@ static func expend(input: Vector3) -> void:
 		
 		if input[i] != 0.0:
 			methods[i].call(input[i])
+
+
+func accepts(input: Structure) -> bool:
+	var ans = false
+	
+	if input != null:
+		for i in input.upgrade_tree:
+			if upgrade_tree.has(i):
+				return true
+	
+	return ans
