@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://fpn7ex7fdk4w"]
 
+[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="1_3eop5"]
 [ext_resource type="Script" uid="uid://cqxwpq8l8c70x" path="res://scenes/UI/main_user_interface.gd" id="1_7meb5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn0t7"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3eop5")
 script = ExtResource("1_7meb5")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=600583528]

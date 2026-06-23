@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b31bxcofmhyst"]
 
 [ext_resource type="PackedScene" uid="uid://diorcvh56bqpg" path="res://scenes/play area/play_area.tscn" id="1_01db0"]
+[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="1_eka2i"]
 [ext_resource type="Script" uid="uid://cpblqd26u1df8" path="res://scenes/UI/game_manager.gd" id="1_tl5mg"]
 [ext_resource type="PackedScene" uid="uid://fpn7ex7fdk4w" path="res://scenes/UI/main-user-interface.tscn" id="2_aqc0r"]
 [ext_resource type="PackedScene" uid="uid://bxlu6npyhnogh" path="res://scenes/play area/shop_space.tscn" id="4_ycvph"]
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 offset_right = 1156.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_eka2i")
 script = ExtResource("1_tl5mg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1797626704]
