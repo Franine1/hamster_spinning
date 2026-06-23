@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://3j6fh54pk25t"]
+
+[ext_resource type="FontFile" uid="uid://dm87sb8rsofaa" path="res://assets/fonts/ngaco/Ngaco.ttf" id="1_tf8oi"]
+
+[resource]
+default_font = ExtResource("1_tf8oi")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d24v53mgebmqo"
+path="res://.godot/imported/Parry.wav-af68d805b40b90e861b8a564ac6a74eb.sample"
+
+[deps]
+
+source_file="res://sfx/sound library/Parry.wav"
+dest_files=["res://.godot/imported/Parry.wav-af68d805b40b90e861b8a564ac6a74eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
