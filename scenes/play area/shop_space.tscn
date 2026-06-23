@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxlu6npyhnogh"]
 
 [ext_resource type="Script" uid="uid://bfu0q8b0ys7gs" path="res://shop_space.gd" id="1_6dqay"]
+[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="1_358l6"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_0k5pd"]
 [ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/plastic_wheel.tres" id="3_gum0k"]
 [ext_resource type="Resource" uid="uid://cubaq7umb5a1c" path="res://resources/structures/sawmill.tres" id="4_358l6"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_358l6")
 allow_search = false
 max_columns = 36
 script = ExtResource("1_6dqay")

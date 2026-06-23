@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dc8776pgafhft"]
 
 [ext_resource type="Script" uid="uid://sar2d3wlid1d" path="res://scenes/UI/cursor_tooltip.gd" id="1_6b457"]
+[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="2_jlnsx"]
 
 [node name="cursor_tooltip" type="Node2D" unique_id=2097758532]
 z_index = 1000
@@ -9,6 +10,7 @@ script = ExtResource("1_6b457")
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=214263237]
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("2_jlnsx")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer" unique_id=956057516]
 layout_mode = 2
@@ -18,5 +20,6 @@ ratio = 1.5
 unique_name_in_owner = true
 custom_maximum_size = Vector2(600, -1)
 layout_mode = 2
+theme = ExtResource("2_jlnsx")
 fit_content = true
 scroll_active = false
