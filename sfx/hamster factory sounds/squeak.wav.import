@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3ixixddcfd02"
+path="res://.godot/imported/squeak.wav-4f11ba66ebb462e0e131abb5a813420a.sample"
+
+[deps]
+
+source_file="res://sfx/hamster factory sounds/squeak.wav"
+dest_files=["res://.godot/imported/squeak.wav-4f11ba66ebb462e0e131abb5a813420a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

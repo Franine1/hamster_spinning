@@ -4,6 +4,11 @@ extends ItemList
 
 
 @export var allowed_structures: Array[Structure] = []
+##audio
+var hover_player: AudioStreamPlayer
+var click_player:AudioStreamPlayer
+var last_hovered_id := -1
+
 
 var linked_list: Dictionary[int,int]
 
@@ -12,6 +17,17 @@ var refresh_time: float = 0.0
 func _ready() -> void:
 	display_items()
 	icon_mode = ItemList.ICON_MODE_TOP
+	
+	##audio
+	hover_player = AudioStreamPlayer.new()
+	hover_player.stream = preload("res://sfx/satellite sounds/blipSelect.wav")
+	hover_player.volume_db = -2
+	add_child(hover_player)
+	
+	click_player = AudioStreamPlayer.new()
+	click_player.stream = preload("res://sfx/satellite sounds/clicksound.wav")
+	click_player.volume_db = -2
+	add_child(click_player)
 
 func display_items() -> void:
 	item_count = 0
@@ -57,9 +73,19 @@ func _process(_delta: float) -> void:
 	
 	if id != -1 and get_viewport().handle_input_locally:
 		game.set_tooltip(allowed_structures[linked_list[id]].tooltip())
+		##audio
+		if id != last_hovered_id:
+			hover_player.pitch_scale = randf_range(0.95, 1.05)
+			hover_player.play()
+			last_hovered_id = id
+			
 		select(id)
 		
 		if Input.is_action_just_pressed("Place Structure"):
+			##audio
+			click_player.pitch_scale = randf_range(0.9, 1.1)
+			click_player.play()
+			
 			var bp: Structure = allowed_structures[linked_list[id]]
 			var cost: Vector3 = bp.cost()
 			if Structure.affordable(cost):

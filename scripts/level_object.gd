@@ -2,7 +2,7 @@ class_name LevelObject
 extends StaticBody2D
 
 ##audio on click
-@onready var click_sound = preload("res://sfx/sound library/UI & Menus/Click Bounce.wav")
+@onready var click_sound = preload("res://sfx/hamster factory sounds/squeak.wav")
 
 @export var template: Structure = null
 
@@ -121,7 +121,12 @@ func _process(delta: float) -> void:
 				game.set_tooltip("Click to boost!",0.033)
 				
 				if Input.is_action_just_pressed("Place Structure"):
+					##audio
+					click_player.volume_db = -10
+					##click_player.volume_db = randf_range(-1.0, 1.0)
+					click_player.pitch_scale = randf_range(0.9, 1.1)
 					click_player.play()
+					#audio
 					game.change_HP(template.HP_output)
 					game.change_money(template.money_output)
 					game.change_HP(template.food_output)
