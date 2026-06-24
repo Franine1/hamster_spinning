@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://fpn7ex7fdk4w"]
 
-[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="1_3eop5"]
 [ext_resource type="Script" uid="uid://cqxwpq8l8c70x" path="res://scenes/UI/main_user_interface.gd" id="1_7meb5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn0t7"]
 draw_center = false
-border_width_bottom = 2
+border_width_bottom = 1
 
 [node name="Control" type="Control" unique_id=476897754]
 layout_mode = 3
@@ -14,38 +13,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_3eop5")
 script = ExtResource("1_7meb5")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=600583528]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1257046169]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 64.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -223.0
+offset_right = 223.0
+offset_bottom = 71.0
 grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1257046169]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=749837865]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=749837865]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2" unique_id=46038920]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=46038920]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HP_container" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=887782821]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer/HBoxContainer" unique_id=600583528]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer" unique_id=2015056972]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HP_container" type="VBoxContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=887782821]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(136, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/HP_container" unique_id=1019017944]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/HP_container" unique_id=1019017944]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -56,7 +64,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="HP_value" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/HP_container" unique_id=890556832]
+[node name="HP_value" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/HP_container" unique_id=890556832]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -67,7 +75,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="HP_rate" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/HP_container" unique_id=299473590]
+[node name="HP_rate" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/HP_container" unique_id=299473590]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -79,14 +87,24 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="money_container" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1277688583]
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/MarginContainer/HBoxContainer" unique_id=986816930]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer2" unique_id=375623216]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="money_container" type="VBoxContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer" unique_id=1277688583]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(136, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/money_container" unique_id=1119246118]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/money_container" unique_id=1119246118]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -97,7 +115,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="money_value" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/money_container" unique_id=1368959341]
+[node name="money_value" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/money_container" unique_id=1368959341]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -108,7 +126,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="money_rate" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/money_container" unique_id=885265687]
+[node name="money_rate" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/money_container" unique_id=885265687]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -120,14 +138,24 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="food_container" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=696386338]
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/MarginContainer/HBoxContainer" unique_id=829689929]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer3" unique_id=504856843]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="food_container" type="VBoxContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer" unique_id=696386338]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(136, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/food_container" unique_id=569731190]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/food_container" unique_id=569731190]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 6
@@ -138,7 +166,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="food_value" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/food_container" unique_id=1418047326]
+[node name="food_value" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/food_container" unique_id=1418047326]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -149,7 +177,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="food_rate" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer/food_container" unique_id=1155931098]
+[node name="food_rate" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/food_container" unique_id=1155931098]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
