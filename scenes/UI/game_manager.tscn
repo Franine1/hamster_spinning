@@ -41,14 +41,20 @@ layout_mode = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/Control2" unique_id=1212849530]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer2/Control2" unique_id=411712238]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 18.0
+offset_right = 316.0
+offset_bottom = 58.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/Control2/PanelContainer" unique_id=1212849530]
+layout_mode = 2
 text = "Press SHIFT to view upgrades"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="empty node" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=179880719]
 layout_mode = 2
