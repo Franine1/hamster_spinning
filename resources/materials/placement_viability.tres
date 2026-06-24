@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c1dsxohnyk0l5"]
+
+[ext_resource type="Shader" uid="uid://brrgkksdcvotk" path="res://scenes/play area/placement_viability.gdshader" id="1_wdrcg"]
+
+[resource]
+shader = ExtResource("1_wdrcg")
+shader_parameter/color_reshading = Color(1, 0, 0, 1)

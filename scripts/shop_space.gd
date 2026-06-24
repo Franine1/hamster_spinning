@@ -69,10 +69,12 @@ func _process(_delta: float) -> void:
 	
 	var game: GameData = GameData.get_game()
 	
-	var id = get_item_at_position(get_global_mouse_position() + (Vector2(get_window().size) * Vector2(1.0,0.0)),true)
+	var trn = get_global_transform()
+	
+	var id = get_item_at_position(get_global_mouse_position() + (Vector2(get_window().size) * Vector2(1.0,0.0)) - trn.origin,true)
 	
 	if id != -1 and get_viewport().handle_input_locally:
-		game.set_tooltip(allowed_structures[linked_list[id]].tooltip())
+		game.set_tooltip(allowed_structures[linked_list[id]].tooltip(),0.1)
 		##audio
 		if id != last_hovered_id:
 			hover_player.pitch_scale = randf_range(0.95, 1.05)
@@ -80,6 +82,7 @@ func _process(_delta: float) -> void:
 			last_hovered_id = id
 			
 		select(id)
+		#print(tr)
 		
 		if Input.is_action_just_pressed("Place Structure"):
 			##audio
@@ -95,8 +98,6 @@ func _process(_delta: float) -> void:
 				# cannot afford structure
 				pass
 	else:
-		if get_viewport().handle_input_locally:
-			game.set_tooltip()
 		deselect_all()
 	
 	#print(get_tooltip(get_local_mouse_position()))

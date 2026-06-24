@@ -11,4 +11,5 @@ money_input = 0.5
 food_output = 1.5
 price = 5.0
 description = "Feeder"
+upgrade_tree = Array[int]([2])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

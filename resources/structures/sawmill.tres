@@ -13,4 +13,5 @@ price = 30.0
 purchase_resource = 1
 description = "Money Printer"
 tooltip_hint = "Uses H.P. to print wads of cash"
+upgrade_tree = Array[int]([2])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

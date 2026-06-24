@@ -18,6 +18,9 @@ var tooltip_start: float = 0.0
 
 var unlocks: Dictionary[int,int]
 
+signal blueprint_changed(blueprint: Structure)
+
+
 static func _static_init() -> void:
 	if (main == null) or !(main is GameData):
 		var temp: GameData = GameData.new()
@@ -128,6 +131,7 @@ func accrue_additions(input: Dictionary[float,float]) -> float:
 
 func set_blueprint(input: Structure = null) -> void:
 	current_blueprint = input
+	blueprint_changed.emit(current_blueprint)
 
 func get_blueprint() -> Structure:
 	return current_blueprint

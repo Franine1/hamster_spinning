@@ -5,7 +5,12 @@
 [ext_resource type="Script" uid="uid://cpblqd26u1df8" path="res://scenes/UI/game_manager.gd" id="1_tl5mg"]
 [ext_resource type="PackedScene" uid="uid://fpn7ex7fdk4w" path="res://scenes/UI/main-user-interface.tscn" id="2_aqc0r"]
 [ext_resource type="PackedScene" uid="uid://bxlu6npyhnogh" path="res://scenes/play area/shop_space.tscn" id="4_ycvph"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="5_34ocb"]
 [ext_resource type="PackedScene" uid="uid://dc8776pgafhft" path="res://scenes/UI/cursor_tooltip.tscn" id="5_r72w0"]
+[ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/plastic_wheel.tres" id="6_ugkkn"]
+[ext_resource type="Resource" uid="uid://c6odjy81xqlen" path="res://resources/structures/wooden_wheel.tres" id="7_wbmm5"]
+[ext_resource type="Resource" uid="uid://cubaq7umb5a1c" path="res://resources/structures/sawmill.tres" id="8_bqvk7"]
+[ext_resource type="Resource" uid="uid://852s64oc6ra7" path="res://resources/structures/feeder.tres" id="9_vtsfn"]
 
 [node name="GameManager" type="Control" unique_id=255460626]
 layout_mode = 3
@@ -94,6 +99,21 @@ handle_input_locally = false
 size = Vector2i(1152, 576)
 render_target_update_mode = 4
 
-[node name="shop_space" parent="VBoxContainer/playable windows/shop container/shop viewport" unique_id=105887212 instance=ExtResource("4_ycvph")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/playable windows/shop container/shop viewport" unique_id=1026168524]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="shop_space" parent="VBoxContainer/playable windows/shop container/shop viewport/VBoxContainer" unique_id=105887212 instance=ExtResource("4_ycvph")]
+layout_mode = 2
+size_flags_vertical = 3
+allowed_structures = Array[ExtResource("5_34ocb")]([ExtResource("6_ugkkn"), ExtResource("7_wbmm5")])
+
+[node name="shop_space2" parent="VBoxContainer/playable windows/shop container/shop viewport/VBoxContainer" unique_id=346707716 instance=ExtResource("4_ycvph")]
+layout_mode = 2
+size_flags_vertical = 3
+allowed_structures = Array[ExtResource("5_34ocb")]([ExtResource("8_bqvk7"), ExtResource("9_vtsfn")])
 
 [node name="cursor_tooltip" parent="." unique_id=2097758532 instance=ExtResource("5_r72w0")]
