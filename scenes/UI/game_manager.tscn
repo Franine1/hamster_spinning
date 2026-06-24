@@ -18,86 +18,76 @@ grow_vertical = 2
 theme = ExtResource("1_eka2i")
 script = ExtResource("1_tl5mg")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=581701525]
-layout_mode = 0
-offset_right = 2308.0
-offset_bottom = 68.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1797626704]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=581701525]
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.13
 
-[node name="empty node" type="Control" parent="HBoxContainer2" unique_id=179880719]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=1272418852]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="playable windows" type="HBoxContainer" parent="." unique_id=769805285]
+[node name="CurrencyUI" parent="VBoxContainer/HBoxContainer2/Control2" unique_id=476897754 instance=ExtResource("2_aqc0r")]
+top_level = true
+layout_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/Control2" unique_id=1212849530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press SHIFT to view upgrades"
+
+[node name="empty node" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=179880719]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="playable windows" type="HBoxContainer" parent="VBoxContainer" unique_id=769805285]
 unique_name_in_owner = true
-layout_mode = 0
-offset_top = 72.0
-offset_right = 2308.0
-offset_bottom = 648.0
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 18.0
 offset_transform_enabled = true
 
-[node name="game container" type="SubViewportContainer" parent="playable windows" unique_id=776031567]
+[node name="game container" type="SubViewportContainer" parent="VBoxContainer/playable windows" unique_id=776031567]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="game viewport" type="SubViewport" parent="playable windows/game container" unique_id=1216573127]
+[node name="game viewport" type="SubViewport" parent="VBoxContainer/playable windows/game container" unique_id=1216573127]
 unique_name_in_owner = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(1152, 576)
 render_target_update_mode = 4
 
-[node name="TileMapLayer" parent="playable windows/game container/game viewport" unique_id=1186091628 instance=ExtResource("1_01db0")]
+[node name="TileMapLayer" parent="VBoxContainer/playable windows/game container/game viewport" unique_id=1186091628 instance=ExtResource("1_01db0")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="playable windows" unique_id=1797626704]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control2" type="Control" parent="playable windows/VBoxContainer" unique_id=1272418852]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.13
-
-[node name="shop container" type="SubViewportContainer" parent="playable windows/VBoxContainer" unique_id=1643333875]
+[node name="shop container" type="SubViewportContainer" parent="VBoxContainer/playable windows" unique_id=1643333875]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 18.0
 stretch = true
 
-[node name="shop viewport" type="SubViewport" parent="playable windows/VBoxContainer/shop container" unique_id=537666276]
+[node name="shop viewport" type="SubViewport" parent="VBoxContainer/playable windows/shop container" unique_id=537666276]
 unique_name_in_owner = true
 handle_input_locally = false
-size = Vector2i(1152, 572)
+size = Vector2i(1152, 576)
 render_target_update_mode = 4
 
-[node name="shop_space" parent="playable windows/VBoxContainer/shop container/shop viewport" unique_id=105887212 instance=ExtResource("4_ycvph")]
+[node name="shop_space" parent="VBoxContainer/playable windows/shop container/shop viewport" unique_id=105887212 instance=ExtResource("4_ycvph")]
 
 [node name="cursor_tooltip" parent="." unique_id=2097758532 instance=ExtResource("5_r72w0")]
-
-[node name="CurrencyUI" parent="." unique_id=476897754 instance=ExtResource("2_aqc0r")]
-top_level = true
-layout_mode = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=263906774]
-layout_mode = 1
-offset_left = 48.0
-offset_top = 10.0
-offset_right = 306.0
-offset_bottom = 63.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=1212849530]
-layout_mode = 2
-text = "Press SHIFT to view upgrades"
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
