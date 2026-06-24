@@ -1,11 +1,15 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://cubaq7umb5a1c"]
 
-[ext_resource type="Texture2D" uid="uid://cgxcb4coflw7e" path="res://assets/icon.svg" id="1_jtxsg"]
+[ext_resource type="Texture2D" uid="uid://dsfug8e4a5ep3" path="res://assets/sprite sheets/PrinterSpritesheet.PNG" id="1_p2be8"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_e0c23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3sqk"]
+atlas = ExtResource("1_p2be8")
+region = Rect2(32, 32, 32, 32)
 
 [resource]
 script = ExtResource("2_e0c23")
-image = ExtResource("1_jtxsg")
+image = SubResource("AtlasTexture_x3sqk")
 size = Vector2i(64, 64)
 HP_input = 0.2
 money_output = 0.5

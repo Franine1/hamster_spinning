@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://852s64oc6ra7"]
 
-[ext_resource type="Texture2D" uid="uid://cgxcb4coflw7e" path="res://assets/icon.svg" id="1_x3sqk"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_pj8th"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dturv"]
+load_path = "res://.godot/imported/icon.svg-56083ea2a1f1a4f1e49773bdc6d7826c.ctex"
 
 [resource]
 script = ExtResource("2_pj8th")
-image = ExtResource("1_x3sqk")
+image = SubResource("CompressedTexture2D_dturv")
 size = Vector2i(32, 64)
 money_input = 0.5
 food_output = 1.5
