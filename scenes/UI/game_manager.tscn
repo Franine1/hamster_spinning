@@ -90,6 +90,7 @@ stretch = true
 [node name="shop viewport" type="SubViewport" parent="playable windows/shop container" unique_id=537666276]
 unique_name_in_owner = true
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
