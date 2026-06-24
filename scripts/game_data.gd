@@ -13,11 +13,37 @@ var money_recordings: Dictionary[float,float] = {}
 var food_recordings: Dictionary[float,float] = {}
 
 var current_blueprint: Structure = null
-var current_tooltip: String = ""
-var tooltip_timer: float = -1.0
-var tooltip_start: float = 0.0
+var current_tooltips: Array[tooltip]
 
 var unlocks: Dictionary[int,int]
+
+class tooltip:
+	var label: String
+	var start_time: float
+	var duration: float 
+	var channel: String = ""
+	
+	func _init(_label: String, _duration: float = 0.5) -> void:
+		rename(_label)
+		refresh(_duration)
+	
+	func finished() -> bool:
+		return Time.get_unix_time_from_system() >= (duration + start_time)
+	
+	func set_channel(input: String) -> void:
+		if input.length() > 0:
+			channel = input
+		else:
+			channel = ""
+	
+	func rename(input: String) -> void:
+		label = input
+	
+	func refresh(_duration: float = 0.5) -> void:
+		start_time = Time.get_unix_time_from_system()
+		duration = _duration
+		
+
 
 signal blueprint_changed(blueprint: Structure)
 
@@ -137,22 +163,35 @@ func set_blueprint(input: Structure = null) -> void:
 func get_blueprint() -> Structure:
 	return current_blueprint
 
-func set_tooltip(input: String = "", time: float = -1.0) -> void:
-	current_tooltip = input
-	
+func set_tooltip(input: String = "", time: float = 0.5, channel: String = "") -> void:
 	if time > 0.0:
-		tooltip_timer = time
-		tooltip_start = Time.get_unix_time_from_system()
-	else:
-		tooltip_timer = -1.0
+		if channel.length() > 0:
+			for item in current_tooltips:
+				if item.channel == channel:
+					item.rename(input)
+					item.refresh(time)
+					return
+		
+		var next: tooltip = tooltip.new(input,time)
+		next.set_channel(channel)
+		current_tooltips.append(next)
 
-func get_tooltip() -> String:
+func get_tooltip() -> Array[String]:
 	
-	if tooltip_timer >= 0.0:
-		if Time.get_unix_time_from_system() >= (tooltip_timer + tooltip_start):
-			return ""
+	var ans: Array[String] = []
 	
-	return current_tooltip
+	var removed: Array[int] = []
+	
+	for i in current_tooltips.size():
+		if current_tooltips[i].finished():
+			removed.append(i)
+		else:
+			ans.append(current_tooltips[i].label)
+	
+	for i in range(removed.size()-1,-1,-1):
+		current_tooltips.remove_at(removed[i])
+	
+	return ans
 
 
 func add_unlocks(input: Structure) -> void:

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b8i2wk3fejlvb"]
+
+[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="1_3i7u0"]
+[ext_resource type="Script" uid="uid://d1rlaq0kfcih1" path="res://scenes/UI/tooltip_box.gd" id="2_b5qn2"]
+
+[node name="tooltip_box" type="PanelContainer" unique_id=510376223]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 3
+theme = ExtResource("1_3i7u0")
+script = ExtResource("2_b5qn2")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=506698334]
+layout_mode = 2
+ratio = 1.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer" unique_id=461692037]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(600, -1)
+layout_mode = 2
+theme = ExtResource("1_3i7u0")
+fit_content = true
+scroll_active = false

@@ -139,6 +139,7 @@ func _process(delta: float) -> void:
 						
 						if collision and snap_positions[coordinate_index] is LevelObject:
 							temp_old = snap_positions[coordinate_index].template
+							game.change_food(snap_positions[coordinate_index].stored_food)
 							snap_positions[coordinate_index].get_parent().remove_child(snap_positions[coordinate_index])
 							snap_positions[coordinate_index].queue_free()
 						
@@ -200,7 +201,9 @@ func _process(delta: float) -> void:
 			z_index = 19
 			modulate = Color(1.0,1.0,1.0,1.0)
 			
-			if contacts(mouse_pos) and game.get_blueprint() == null:
+			var hovering: bool = contacts(mouse_pos) and game.get_blueprint() == null
+			
+			if hovering:
 				
 				var food_request: float = template.max_food_storage - stored_food
 				if food_request >= 0.0:
@@ -208,7 +211,7 @@ func _process(delta: float) -> void:
 				
 				
 				if template.clickable:
-					game.set_tooltip(clickable_text,0.033)
+					game.set_tooltip(clickable_text,0.05, "click_tooltip")
 					
 					if Input.is_action_just_pressed("Place Structure"):
 						##audio
@@ -219,19 +222,31 @@ func _process(delta: float) -> void:
 						
 						on_click()
 			
-			
-			
+			var output: float = 0.0
 			
 			if template.constant_output:
-				transact_resources(delta)
+				output = transact_resources(delta)
 			
+			
+			if hovering:
+				var extra_tooltip: String = ""
+				if template.constant_output:
+					extra_tooltip += "Efficiency: " + str(snapped(output* 100.0,0.1))
+				if template.max_food_storage > 0.0:
+					if extra_tooltip.length() > 0:
+						extra_tooltip += "\n"
+					extra_tooltip += "Food Storage: " + str(snapped(stored_food,0.1)) + "/" + str(snapped(template.max_food_storage,0.1))
+				
+				if extra_tooltip.length() > 0:
+					game.set_tooltip(extra_tooltip,0.05, "production_tooltip")
 
 
 func on_click() -> void:
 	transact_resources(1.0,template.expensive_click)
 
 
-func transact_resources(delta: float, do_input: bool = true, do_output: bool = true) -> void:
+
+func transact_resources(delta: float, do_input: bool = true, do_output: bool = true) -> float:
 	var game: GameData = GameData.get_game()
 	
 	var best_rate = delta
@@ -245,17 +260,29 @@ func transact_resources(delta: float, do_input: bool = true, do_output: bool = t
 			best_rate = min(best_rate,stored_food/template.food_input)
 	
 	if best_rate < delta and !template.partial_output:
-		return
+		return 0.0
 	
-	var hp = template.HP_output-template.HP_input if do_output else -template.HP_input
-	var money = template.money_output-template.money_input if do_output else -template.money_input
-	var food_out = template.food_output if do_output else 0.0
-	var food_in = -template.food_input
+	
+	var hp = 0.0
+	var money = 0.0
+	var food_out = 0.0
+	var food_in = 0.0
+	
+	if do_input:
+		hp -= template.HP_input
+		money -= template.money_input
+		food_in -= template.food_input
+	if do_output:
+		hp += template.HP_output
+		money += template.money_output
+		food_out += template.food_output
 	
 	game.change_HP(hp * best_rate)
 	game.change_money(money * best_rate)
 	game.change_food(food_out * best_rate)
 	stored_food = clamp(stored_food+(food_in*best_rate),0.0,template.max_food_storage)
+	
+	return clamp(best_rate / delta,0.0,1.0)
 
 
 func recoloration(input: Color) -> void:
