@@ -7,7 +7,7 @@ extends ItemList
 ##audio
 var hover_player: AudioStreamPlayer
 var click_player:AudioStreamPlayer
-var last_hovered_id := -1
+var last_hovered_id: int = -1
 
 
 var linked_list: Dictionary[int,int]
@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 	if id != -1 and get_viewport().handle_input_locally:
 		game.set_tooltip(allowed_structures[linked_list[id]].tooltip(),0.1)
 		##audio
-		if id != last_hovered_id:
+		if id != last_hovered_id and !is_item_disabled(id):
 			hover_player.pitch_scale = randf_range(0.95, 1.05)
 			hover_player.play()
 			last_hovered_id = id
@@ -98,6 +98,7 @@ func _process(_delta: float) -> void:
 				# cannot afford structure
 				pass
 	else:
+		last_hovered_id = -1
 		deselect_all()
 	
 	#print(get_tooltip(get_local_mouse_position()))

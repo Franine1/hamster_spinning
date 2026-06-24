@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ktn7as76xyyk"]
+
+[ext_resource type="Script" uid="uid://bfu0q8b0ys7gs" path="res://scripts/shop_space.gd" id="1_jiyae"]
+
+[node name="ShopSpace" type="ItemList" unique_id=825938650]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_columns = 32
+script = ExtResource("1_jiyae")
+metadata/_custom_type_script = "uid://bfu0q8b0ys7gs"
