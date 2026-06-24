@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://chonlemilf88i"]
+
+[ext_resource type="Texture2D" uid="uid://cgxcb4coflw7e" path="res://assets/icon.svg" id="1_4rek3"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_7qvtt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtax8"]
+atlas = ExtResource("1_4rek3")
+region = Rect2(64, 0, 64, 64)
+
+[resource]
+script = ExtResource("2_7qvtt")
+image = SubResource("AtlasTexture_jtax8")
+size = Vector2i(64, 64)
+money_input = 5.0
+food_output = 10.0
+clickable = true
+expensive_click = true
+constant_output = false
+partial_output = false
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

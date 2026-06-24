@@ -6,6 +6,7 @@ static var main: GameData
 var hamster_power: float = 0.0
 var money: float = 0.0
 var food: float = 0.0
+var food_in_hand: float = 0.0
 
 var hp_recordings: Dictionary[float,float] = {}
 var money_recordings: Dictionary[float,float] = {}
@@ -153,6 +154,7 @@ func get_tooltip() -> String:
 	
 	return current_tooltip
 
+
 func add_unlocks(input: Structure) -> void:
 	for i in input.upgrade_tree:
 		
@@ -160,7 +162,6 @@ func add_unlocks(input: Structure) -> void:
 			unlocks[i] = max(input.tier+1,unlocks[i])
 		else:
 			unlocks[i] = input.tier+1
-
 
 
 func is_unlocked(input: Structure) -> bool:
@@ -177,3 +178,19 @@ func is_unlocked(input: Structure) -> bool:
 			return ans
 	
 	return ans
+
+func grab_food() -> void:
+	food_in_hand = food
+	set_food(0.0)
+
+func release_food() -> void:
+	change_food(food_in_hand)
+	food_in_hand = 0.0
+
+func take_food(amount: float) -> float:
+	var reduction = min(food_in_hand,amount)
+	food_in_hand -= reduction
+	return reduction
+
+func held_food() -> float:
+	return food_in_hand

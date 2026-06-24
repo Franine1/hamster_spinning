@@ -3,13 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://cgxcb4coflw7e" path="res://assets/icon.svg" id="1_x3sqk"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_pj8th"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggwy0"]
+atlas = ExtResource("1_x3sqk")
+region = Rect2(0, 64, 0, 64)
+
 [resource]
 script = ExtResource("2_pj8th")
-image = ExtResource("1_x3sqk")
-size = Vector2i(32, 64)
-money_input = 0.5
-food_output = 1.5
-price = 5.0
-description = "Feeder"
-upgrade_tree = Array[int]([2])
+image = SubResource("AtlasTexture_ggwy0")
+size = Vector2i(128, 64)
+clickable = true
+constant_output = false
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"
