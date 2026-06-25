@@ -8,6 +8,9 @@ extends StaticBody2D
 
 @export var placement_mode: mode = mode.WAITING
 
+@export var clickable_text: String = "Click to boost!"
+
+
 var snap_positions: Array[Node2D] = []
 
 enum mode {
@@ -15,6 +18,8 @@ enum mode {
 	HOVER,
 	PLACED
 }
+
+var stored_food: float = 0.0
 
 var collider: CollisionShape2D
 var sprite: Sprite2D
@@ -27,14 +32,16 @@ func _ready() -> void:
 	sprite = Sprite2D.new()
 	##audio click
 	click_player = AudioStreamPlayer.new()
-	click_player.stream = click_sound
+	#click_player.stream = click_sound
 	add_child(click_player)
 	##audio click
 	add_sibling.call_deferred(sprite)
 	collider = CollisionShape2D.new()
 	add_child(collider)
+	
 	if template != null:
 		get_tree().create_timer(0.1).timeout.connect(refresh)
+	
 	
 	
 
@@ -46,6 +53,11 @@ func refresh(input: Structure = template) -> void:
 	if template == null:
 		sprite.texture = null
 		return
+	
+	if placement_mode == mode.HOVER:
+		click_player.stream = template.placement_sound
+	else:
+		click_player.stream = template.click_sound
 	
 	var bounds = input.size
 	
@@ -68,16 +80,15 @@ func refresh(input: Structure = template) -> void:
 func place(pos: Vector2) -> void:
 	global_position = (32.0 * (pos/32.0).floor()) + placement_offset
 
+
 func coordinates() -> Vector2:
 	return global_position - placement_offset
+
 
 func contacts(pos: Vector2) -> bool:
 	var space: Rect2 = Rect2(global_position - placement_offset,placement_offset * 2)
 	
 	return space.has_point(pos)
-
-func click_reaction() -> void:
-	pass
 
 
 func _process(delta: float) -> void:
@@ -96,6 +107,7 @@ func _process(delta: float) -> void:
 				visible = false
 				
 			else:
+				
 				var best_position: Vector2 = mouse_pos
 				var best_dist: float = INF
 				var coordinate_index: int = -1
@@ -127,6 +139,7 @@ func _process(delta: float) -> void:
 						
 						if collision and snap_positions[coordinate_index] is LevelObject:
 							temp_old = snap_positions[coordinate_index].template
+							game.change_food(snap_positions[coordinate_index].stored_food)
 							snap_positions[coordinate_index].get_parent().remove_child(snap_positions[coordinate_index])
 							snap_positions[coordinate_index].queue_free()
 						
@@ -137,6 +150,13 @@ func _process(delta: float) -> void:
 						else:
 							add_sibling(temp)
 						
+						
+						click_player.volume_db = -10
+						##click_player.volume_db = randf_range(-1.0, 1.0)
+						click_player.pitch_scale = 1.0
+						click_player.play()
+						
+						
 						if temp_old != template:
 							if temp_old.clickable != template.clickable or temp_old.indestructible != template.indestructible:
 								if template.feature_copy_mode != Structure.mode.REPLACE:
@@ -145,13 +165,22 @@ func _process(delta: float) -> void:
 									match template.feature_copy_mode:
 										Structure.mode.COPY:
 											replacement.clickable = temp_old.clickable
+											replacement.expensive_click = temp_old.expensive_click
 											replacement.indestructible = temp_old.indestructible
+											replacement.constant_output = temp_old.constant_output
+											replacement.partial_output = temp_old.partial_output
 										Structure.mode.COMPARE_AND:
 											replacement.clickable = temp_old.clickable and replacement.clickable
+											replacement.expensive_click = temp_old.expensive_click and replacement.expensive_click
 											replacement.indestructible = temp_old.indestructible and replacement.indestructible
+											replacement.constant_output = temp_old.constant_output and replacement.constant_output
+											replacement.partial_output = temp_old.partial_output and replacement.partial_output
 										Structure.mode.COMPARE_OR:
 											replacement.clickable = temp_old.clickable or replacement.clickable
+											replacement.expensive_click = temp_old.expensive_click or replacement.expensive_click
 											replacement.indestructible = temp_old.indestructible or replacement.indestructible
+											replacement.constant_output = temp_old.constant_output or replacement.constant_output
+											replacement.partial_output = temp_old.partial_output or replacement.partial_output
 									
 									temp.template = replacement
 								
@@ -172,42 +201,88 @@ func _process(delta: float) -> void:
 			z_index = 19
 			modulate = Color(1.0,1.0,1.0,1.0)
 			
-			if contacts(mouse_pos) and template.clickable and game.get_blueprint() == null:
+			var hovering: bool = contacts(mouse_pos) and game.get_blueprint() == null
+			
+			if hovering:
 				
-				game.set_tooltip("Click to boost!",0.033)
+				var food_request: float = template.max_food_storage - stored_food
+				if food_request >= 0.0:
+					stored_food += game.take_food(food_request)
 				
-				if Input.is_action_just_pressed("Place Structure"):
-					##audio
-					click_player.volume_db = -10
-					##click_player.volume_db = randf_range(-1.0, 1.0)
-					click_player.pitch_scale = randf_range(0.9, 1.1)
-					click_player.play()
-					#audio
-					game.change_HP(template.HP_output)
-					game.change_money(template.money_output)
-					game.change_HP(template.food_output)
-			
-			var best_rate = delta
-			
-			if template.HP_input != 0.0:
-				best_rate = min(best_rate,game.get_HP()/template.HP_input)
-			
-			if template.money_input != 0.0:
-				best_rate = min(best_rate,game.get_money()/template.money_input)
-			
-			if template.food_input != 0.0:
-				best_rate = min(best_rate,game.get_food()/template.food_input)
-			
-			
-			
-			game.change_HP((template.HP_output-template.HP_input) * best_rate)
-			
-			game.change_money((template.money_output-template.money_input) * best_rate)
 				
-			game.change_food((template.food_output-template.food_input) * best_rate)
+				if template.clickable:
+					game.set_tooltip(clickable_text,0.05, "click_tooltip")
+					
+					if Input.is_action_just_pressed("Place Structure"):
+						##audio
+						click_player.volume_db = -10
+						##click_player.volume_db = randf_range(-1.0, 1.0)
+						click_player.pitch_scale = randf_range(0.9, 1.1)
+						click_player.play()
+						
+						on_click()
+			
+			var output: float = 0.0
+			
+			if template.constant_output:
+				output = transact_resources(delta)
 			
 			
+			if hovering:
+				var extra_tooltip: String = ""
+				if template.constant_output:
+					extra_tooltip += "Efficiency: " + str(snapped(output* 100.0,0.1))
+				if template.max_food_storage > 0.0:
+					if extra_tooltip.length() > 0:
+						extra_tooltip += "\n"
+					extra_tooltip += "Food Storage: " + str(snapped(stored_food,0.1)) + "/" + str(snapped(template.max_food_storage,0.1))
+				
+				if extra_tooltip.length() > 0:
+					game.set_tooltip(extra_tooltip,0.05, "production_tooltip")
 
+
+func on_click() -> void:
+	transact_resources(1.0,template.expensive_click)
+
+
+
+func transact_resources(delta: float, do_input: bool = true, do_output: bool = true) -> float:
+	var game: GameData = GameData.get_game()
+	
+	var best_rate = delta
+	
+	if do_input:
+		if template.HP_input != 0.0:
+			best_rate = min(best_rate,game.get_HP()/template.HP_input)
+		if template.money_input != 0.0:
+			best_rate = min(best_rate,game.get_money()/template.money_input)
+		if template.food_input != 0.0:
+			best_rate = min(best_rate,stored_food/template.food_input)
+	
+	if best_rate < delta and !template.partial_output:
+		return 0.0
+	
+	
+	var hp = 0.0
+	var money = 0.0
+	var food_out = 0.0
+	var food_in = 0.0
+	
+	if do_input:
+		hp -= template.HP_input
+		money -= template.money_input
+		food_in -= template.food_input
+	if do_output:
+		hp += template.HP_output
+		money += template.money_output
+		food_out += template.food_output
+	
+	game.change_HP(hp * best_rate)
+	game.change_money(money * best_rate)
+	game.change_food(food_out * best_rate)
+	stored_food = clamp(stored_food+(food_in*best_rate),0.0,template.max_food_storage)
+	
+	return clamp(best_rate / delta,0.0,1.0)
 
 
 func recoloration(input: Color) -> void:

@@ -2,6 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_pj8th"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_57qmd"]
+atlas = ExtResource("1_x3sqk")
+region = Rect2(0, 64, 0, 64)
+
+[resource]
+script = ExtResource("2_pj8th")
+image = SubResource("AtlasTexture_57qmd")
+size = Vector2i(128, 64)
+clickable = true
+constant_output = false
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dturv"]
 load_path = "res://.godot/imported/icon.svg-56083ea2a1f1a4f1e49773bdc6d7826c.ctex"
 
