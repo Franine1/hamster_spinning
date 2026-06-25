@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Switch Screen"):
 		match current_state:
 			state.GAME:
-				game.release_food()
 				current_state = state.SHOP
 			state.SHOP:
 				game.set_tooltip()

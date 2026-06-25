@@ -77,19 +77,15 @@ func _process(_delta: float) -> void:
 		game.set_tooltip(allowed_structures[linked_list[id]].tooltip(),0.1)
 		##audio
 		if id != last_hovered_id and !is_item_disabled(id):
-			hover_player.volume_db = -10.0
 			hover_player.pitch_scale = randf_range(0.95, 1.05)
 			hover_player.play()
 			last_hovered_id = id
-		
-		if !is_selected(id):
-			deselect_all()
+			
 		select(id)
 		#print(tr)
 		
 		if Input.is_action_just_pressed("Place Structure"):
 			##audio
-			click_player.volume_db = -10.0
 			click_player.pitch_scale = randf_range(0.9, 1.1)
 			click_player.play()
 			
