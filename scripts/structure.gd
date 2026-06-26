@@ -3,19 +3,28 @@ extends Resource
 
 @export_category("Display")
 @export var image: Texture2D
+#@export var animation_scene: PackedScene = preload("foo")
 @export var size: Vector2i
+
+@export_category("Audio")
+@export var click_sound: AudioStream
+@export var placement_sound: AudioStream
 
 @export_category("Input")
 @export var HP_input: float = 0.0
 @export var money_input: float = 0.0
 @export var food_input: float = 0.0
+@export var max_food_storage: float = 0.0
 
 @export_category("Output")
 @export var HP_output: float = 0.0
 @export var money_output: float = 0.0
 @export var food_output: float = 0.0
 @export var clickable: bool = false
+@export var expensive_click: bool = false
 @export var indestructible: bool = false
+@export var constant_output: bool = true
+@export var partial_output: bool = true
 @export var feature_copy_mode: mode = mode.REPLACE
 
 @export_category("Shop")
