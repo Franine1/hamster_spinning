@@ -16,6 +16,7 @@ var current_blueprint: Structure = null
 var current_tooltips: Array[tooltip]
 
 var unlocks: Dictionary[int,int]
+var extra_space: int = 0
 
 class tooltip:
 	var label: String
@@ -233,3 +234,14 @@ func take_food(amount: float) -> float:
 
 func held_food() -> float:
 	return food_in_hand
+
+func add_space(input: int) -> void:
+	if input < 0:
+		return
+	var ans = 1 << input
+	
+	extra_space = extra_space & (!ans)
+	extra_space += ans
+
+func get_space() -> int:
+	return extra_space

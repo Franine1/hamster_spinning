@@ -70,3 +70,7 @@ func glide_VP_towards(target: float, delta: float) -> void:
 	var length = min(abs(diff),delta)
 	
 	%"playable windows".offset_transform_position_ratio.x += length * diff_sign
+	const fadeout_strength: float = 1.0
+	var fadeout_color: Color = Color(1.0,1.0,1.0,1.0+((target-diff) * fadeout_strength))
+	
+	%CurrencyUI.modulate = fadeout_color

@@ -18,31 +18,33 @@ grow_vertical = 2
 theme = ExtResource("1_eka2i")
 script = ExtResource("1_tl5mg")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=581701525]
+[node name="ui_container" type="HBoxContainer" parent="." unique_id=581701525]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 2308.0
 offset_bottom = 68.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.13
 
-[node name="Control2" type="Control" parent="HBoxContainer2" unique_id=1272418852]
+[node name="Control2" type="Control" parent="ui_container" unique_id=1272418852]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CurrencyUI" parent="HBoxContainer2/Control2" unique_id=476897754 instance=ExtResource("2_aqc0r")]
+[node name="CurrencyUI" parent="ui_container/Control2" unique_id=476897754 instance=ExtResource("2_aqc0r")]
+unique_name_in_owner = true
 top_level = true
 layout_mode = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2/Control2" unique_id=411712238]
+[node name="PanelContainer" type="PanelContainer" parent="ui_container/Control2" unique_id=411712238]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 18.0
 offset_right = 316.0
 offset_bottom = 58.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2/Control2/PanelContainer" unique_id=1212849530]
+[node name="RichTextLabel" type="RichTextLabel" parent="ui_container/Control2/PanelContainer" unique_id=1212849530]
 layout_mode = 2
 text = "Press SHIFT to view upgrades"
 fit_content = true
@@ -50,7 +52,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="empty node" type="Control" parent="HBoxContainer2" unique_id=179880719]
+[node name="empty node" type="Control" parent="ui_container" unique_id=179880719]
 layout_mode = 2
 size_flags_horizontal = 3
 

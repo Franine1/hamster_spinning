@@ -8,6 +8,7 @@ script = ExtResource("2_beg43")
 image = ExtResource("1_ynuwf")
 size = Vector2i(128, 128)
 food_input = 3.0
+max_food_storage = 90.0
 HP_output = 5.0
 feature_copy_mode = 1
 price = 500.0

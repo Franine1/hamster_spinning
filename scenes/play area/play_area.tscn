@@ -61,36 +61,42 @@ metadata/_custom_type_script = "uid://r6oklbrjn480"
 position = Vector2(-527, -48)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([1])
+unlock_bit = 0
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint2" type="Node2D" parent="." unique_id=114354574]
 position = Vector2(-368, -48)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([1])
+unlock_bit = 0
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint3" type="Node2D" parent="." unique_id=713907810]
 position = Vector2(-209, -48)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([1])
+unlock_bit = 0
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint4" type="Node2D" parent="." unique_id=608775885]
 position = Vector2(-529, -271)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([1])
+unlock_bit = 1
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint5" type="Node2D" parent="." unique_id=1030214970]
 position = Vector2(-366, -271)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([1])
+unlock_bit = 1
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint6" type="Node2D" parent="." unique_id=999133882]
 position = Vector2(-207, -272)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([1])
+unlock_bit = 1
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint8" type="Node2D" parent="." unique_id=307899476]
@@ -109,84 +115,98 @@ metadata/_custom_type_script = "uid://qebyolljllvy"
 position = Vector2(111, -207)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint11" type="Node2D" parent="." unique_id=966440466]
 position = Vector2(176, -206)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint12" type="Node2D" parent="." unique_id=1016236932]
 position = Vector2(238, -207)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint13" type="Node2D" parent="." unique_id=1784976040]
 position = Vector2(305, -207)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint14" type="Node2D" parent="." unique_id=734218204]
 position = Vector2(368, -206)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint15" type="Node2D" parent="." unique_id=1134517440]
 position = Vector2(429, -207)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint16" type="Node2D" parent="." unique_id=2134594470]
 position = Vector2(497, -206)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 3
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint17" type="Node2D" parent="." unique_id=1157953903]
 position = Vector2(112, 15)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint18" type="Node2D" parent="." unique_id=936955167]
 position = Vector2(177, 16)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint19" type="Node2D" parent="." unique_id=1514989376]
 position = Vector2(239, 15)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint20" type="Node2D" parent="." unique_id=1542969266]
 position = Vector2(306, 15)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint21" type="Node2D" parent="." unique_id=1137336936]
 position = Vector2(369, 16)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint22" type="Node2D" parent="." unique_id=1037970006]
 position = Vector2(430, 15)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint23" type="Node2D" parent="." unique_id=176524121]
 position = Vector2(498, 16)
 script = ExtResource("6_gbr35")
 accepted_structures = Array[int]([2])
+unlock_bit = 2
 metadata/_custom_type_script = "uid://qebyolljllvy"
 
 [node name="PlacementPoint24" type="Node2D" parent="." unique_id=1721835256]

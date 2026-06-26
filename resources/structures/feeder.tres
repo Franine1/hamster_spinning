@@ -12,4 +12,6 @@ script = ExtResource("2_pj8th")
 image = SubResource("AtlasTexture_57qmd")
 size = Vector2i(128, 64)
 clickable = true
+constant_output = false
+partial_output = false
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"
