@@ -65,6 +65,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 18.0
 offset_transform_enabled = true
+offset_transform_visual_only = false
 
 [node name="game container" type="SubViewportContainer" parent="playable windows" unique_id=776031567]
 unique_name_in_owner = true

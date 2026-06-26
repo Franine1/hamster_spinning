@@ -86,6 +86,7 @@ func coordinates() -> Vector2:
 
 
 func contacts(pos: Vector2) -> bool:
+	
 	var space: Rect2 = Rect2(global_position - placement_offset,placement_offset * 2)
 	
 	return space.has_point(pos)
@@ -200,6 +201,7 @@ func _process(delta: float) -> void:
 			collision_mask = 0
 			z_index = 19
 			modulate = Color(1.0,1.0,1.0,1.0)
+			
 			
 			var hovering: bool = contacts(mouse_pos) and game.get_blueprint() == null
 			

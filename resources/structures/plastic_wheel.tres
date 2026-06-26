@@ -8,7 +8,6 @@ script = ExtResource("2_yda3x")
 image = ExtResource("1_85qxd")
 size = Vector2i(128, 128)
 food_input = 0.5
-max_food_storage = 30.0
 HP_output = 1.0
 price = 100.0
 description = "Plastic Wheel"

@@ -71,10 +71,10 @@ func _process(_delta: float) -> void:
 	
 	var trn = get_global_transform()
 	
-	var id = get_item_at_position(get_global_mouse_position() + (Vector2(get_window().size) * Vector2(1.0,0.0)) - trn.origin,true)
+	var id = get_item_at_position(get_global_mouse_position() - trn.origin,true)
 	
 	if id != -1 and get_viewport().handle_input_locally:
-		game.set_tooltip(allowed_structures[linked_list[id]].tooltip(),0.1)
+		game.set_tooltip(allowed_structures[linked_list[id]].tooltip(),0.1,"shop_item")
 		##audio
 		if id != last_hovered_id and !is_item_disabled(id):
 			hover_player.volume_db = -10.0
