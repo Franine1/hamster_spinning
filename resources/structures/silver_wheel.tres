@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c8vc35ppu8bnj"]
+
+[ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_s61y8"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_beg43"]
+[ext_resource type="Texture2D" uid="uid://cfmxiukl4g16d" path="res://assets/sprites/SilverWheelSpritesheet.PNG" id="2_s61y8"]
+[ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_ru0ng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xq0c"]
+atlas = ExtResource("2_s61y8")
+region = Rect2(0, 0, 64, 62)
+
+[resource]
+script = ExtResource("2_beg43")
+image = SubResource("AtlasTexture_3xq0c")
+size = Vector2i(128, 128)
+click_sound = ExtResource("1_s61y8")
+placement_sound = ExtResource("3_ru0ng")
+food_input = 2.0
+HP_output = 6.0
+feature_copy_mode = 1
+price = 1000.0
+description = "Silver Wheel"
+tooltip_hint = "Upgrade one of your mouse wheels to increase production!"
+tier = 2
+upgrade_tree = Array[int]([1])
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"
