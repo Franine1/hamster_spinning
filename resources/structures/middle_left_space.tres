@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://f5fj876kkbl0"]
+
+[ext_resource type="Texture2D" uid="uid://bt73jt8tglwt0" path="res://assets/wall_temporary.tres" id="1_3q5pa"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_2obq1"]
+
+[resource]
+script = ExtResource("2_2obq1")
+image = ExtResource("1_3q5pa")
+size = Vector2i(448, 160)
+constant_output = false
+partial_output = false
+price = 1500.0
+description = "Extra Wheel Space"
+upgrade_tree = Array[int]([3])
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

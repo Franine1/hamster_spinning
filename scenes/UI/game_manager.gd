@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			
 			if game.get_blueprint() == null:
 				current_state = state.GAME
-			
+
 
 
 func glide_VP_towards(target: float, delta: float) -> void:

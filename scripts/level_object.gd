@@ -10,6 +10,7 @@ extends StaticBody2D
 
 @export var clickable_text: String = "Click to boost!"
 
+@export var deletion_unlock: int = -1
 
 var snap_positions: Array[Node2D] = []
 
@@ -43,7 +44,18 @@ func _ready() -> void:
 		get_tree().create_timer(0.1).timeout.connect(refresh)
 	
 	
+
+
+func terminate() -> void:
+	var game: GameData = GameData.get_game()
 	
+	if deletion_unlock >= 0:
+		game.add_space(deletion_unlock)
+	
+	sprite.get_parent().remove_child(sprite)
+	sprite.queue_free()
+	get_parent().remove_child(self)
+	queue_free()
 
 
 ## Corrects the sprite2D and collision shape based on the input structure
@@ -133,16 +145,38 @@ func _process(delta: float) -> void:
 				var collision = test_move(transform,Vector2.ZERO,null,0.08,true)
 				
 				if (!collision or template.tier > 0) and (template.tier == 0 or coordinate_index != -1):
-					recoloration(Color.GREEN)
 					
-					if Input.is_action_just_pressed("Place Structure"):
+					var affordable: bool = true
+					var replacement_cost: Vector3 = Vector3.ZERO
+					
+					if collision and snap_positions[coordinate_index] is LevelObject and template.copy_cost:
+						game.set_tooltip(snap_positions[coordinate_index].template.tooltip(),0.05,"space_purchasing")
+						replacement_cost = snap_positions[coordinate_index].template.cost()
+						affordable = Structure.affordable(replacement_cost)
+						
+						if template.size != snap_positions[coordinate_index].template.size:
+							var new_template = template.duplicate()
+							new_template.size = snap_positions[coordinate_index].template.size
+							#new_template.image = snap_positions[coordinate_index].template.image
+							var pos = coordinates()
+							refresh(new_template)
+							place(pos)
+					
+					if affordable:
+						recoloration(Color.GREEN)
+					else:
+						recoloration(Color.YELLOW)
+					
+					
+					if Input.is_action_just_pressed("Place Structure") and affordable:
 						var temp_old: Structure = template
 						
 						if collision and snap_positions[coordinate_index] is LevelObject:
+							if template.copy_cost:
+								Structure.expend(replacement_cost)
 							temp_old = snap_positions[coordinate_index].template
 							game.change_food(snap_positions[coordinate_index].stored_food)
-							snap_positions[coordinate_index].get_parent().remove_child(snap_positions[coordinate_index])
-							snap_positions[coordinate_index].queue_free()
+							snap_positions[coordinate_index].terminate()
 						
 						var temp = self.duplicate()
 						temp.placement_mode = mode.PLACED
@@ -159,31 +193,30 @@ func _process(delta: float) -> void:
 						
 						
 						if temp_old != template:
-							if temp_old.clickable != template.clickable or temp_old.indestructible != template.indestructible:
-								if template.feature_copy_mode != Structure.mode.REPLACE:
-									var replacement: Structure = template.duplicate()
+							if template.feature_copy_mode != Structure.mode.REPLACE:
+								var replacement: Structure = template.duplicate()
+								
+								match template.feature_copy_mode:
+									Structure.mode.COPY:
+										replacement.clickable = temp_old.clickable
+										replacement.expensive_click = temp_old.expensive_click
+										replacement.indestructible = temp_old.indestructible
+										replacement.constant_output = temp_old.constant_output
+										replacement.partial_output = temp_old.partial_output
+									Structure.mode.COMPARE_AND:
+										replacement.clickable = temp_old.clickable and replacement.clickable
+										replacement.expensive_click = temp_old.expensive_click and replacement.expensive_click
+										replacement.indestructible = temp_old.indestructible and replacement.indestructible
+										replacement.constant_output = temp_old.constant_output and replacement.constant_output
+										replacement.partial_output = temp_old.partial_output and replacement.partial_output
+									Structure.mode.COMPARE_OR:
+										replacement.clickable = temp_old.clickable or replacement.clickable
+										replacement.expensive_click = temp_old.expensive_click or replacement.expensive_click
+										replacement.indestructible = temp_old.indestructible or replacement.indestructible
+										replacement.constant_output = temp_old.constant_output or replacement.constant_output
+										replacement.partial_output = temp_old.partial_output or replacement.partial_output
 									
-									match template.feature_copy_mode:
-										Structure.mode.COPY:
-											replacement.clickable = temp_old.clickable
-											replacement.expensive_click = temp_old.expensive_click
-											replacement.indestructible = temp_old.indestructible
-											replacement.constant_output = temp_old.constant_output
-											replacement.partial_output = temp_old.partial_output
-										Structure.mode.COMPARE_AND:
-											replacement.clickable = temp_old.clickable and replacement.clickable
-											replacement.expensive_click = temp_old.expensive_click and replacement.expensive_click
-											replacement.indestructible = temp_old.indestructible and replacement.indestructible
-											replacement.constant_output = temp_old.constant_output and replacement.constant_output
-											replacement.partial_output = temp_old.partial_output and replacement.partial_output
-										Structure.mode.COMPARE_OR:
-											replacement.clickable = temp_old.clickable or replacement.clickable
-											replacement.expensive_click = temp_old.expensive_click or replacement.expensive_click
-											replacement.indestructible = temp_old.indestructible or replacement.indestructible
-											replacement.constant_output = temp_old.constant_output or replacement.constant_output
-											replacement.partial_output = temp_old.partial_output or replacement.partial_output
-									
-									temp.template = replacement
+								temp.template = replacement
 								
 						
 						game.set_blueprint()
@@ -197,10 +230,10 @@ func _process(delta: float) -> void:
 		mode.PLACED:
 			recoloration(Color.WHITE)
 			visible = true
-			collision_layer = 1
+			collision_layer = 1 if template.do_physics else 0
 			collision_mask = 0
 			z_index = 19
-			modulate = Color(1.0,1.0,1.0,1.0)
+			modulate = Color(1.0,1.0,1.0,1.0) if template.do_visibility else Color(1.0,1.0,1.0,0.0)
 			
 			
 			var hovering: bool = contacts(mouse_pos) and game.get_blueprint() == null

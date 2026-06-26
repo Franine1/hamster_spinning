@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://bfb6mp4onjsod"]
+
+[ext_resource type="Texture2D" uid="uid://msv55oeluext" path="res://assets/floor_temporary.tres" id="1_vl0gx"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_83hqa"]
+
+[resource]
+script = ExtResource("2_83hqa")
+image = ExtResource("1_vl0gx")
+size = Vector2i(32, 32)
+do_physics = false
+do_visibility = false
+constant_output = false
+partial_output = false
+copy_cost = true
+description = "Extra Space"
+tooltip_hint = "Additional space for your factory"
+tier = 1
+upgrade_tree = Array[int]([3])
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

@@ -16,6 +16,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_fpxx1")
 placement_sound = ExtResource("3_lb0qm")
 food_input = 0.5
+max_food_storage = 30.0
 HP_output = 1.0
 price = 100.0
 description = "Wooden Wheel"

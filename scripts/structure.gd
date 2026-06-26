@@ -5,6 +5,8 @@ extends Resource
 @export var image: Texture2D
 #@export var animation_scene: PackedScene = preload("foo")
 @export var size: Vector2i
+@export var do_physics: bool = true
+@export var do_visibility: bool = true
 
 @export_category("Audio")
 @export var click_sound: AudioStream
@@ -29,6 +31,7 @@ extends Resource
 
 @export_category("Shop")
 @export var price: float = 0.0
+@export var copy_cost: bool = false
 @export var purchase_resource: material_type = material_type.MONEY
 @export var description: String = ""
 @export var tooltip_hint: String = ""

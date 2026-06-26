@@ -16,6 +16,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_5dflb")
 placement_sound = ExtResource("3_tac41")
 food_input = 1.0
+max_food_storage = 50.0
 HP_output = 3.0
 feature_copy_mode = 1
 price = 500.0

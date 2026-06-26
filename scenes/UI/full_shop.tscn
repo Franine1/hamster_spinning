@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cubaq7umb5a1c" path="res://resources/structures/money_printer.tres" id="5_80q0p"]
 [ext_resource type="Resource" uid="uid://crubq0xpl7j0u" path="res://resources/structures/golden_wheel.tres" id="6_80q0p"]
 [ext_resource type="Resource" uid="uid://c5hvqxh4thccw" path="res://resources/structures/ultra_wheel.tres" id="7_80q0p"]
+[ext_resource type="Resource" uid="uid://bfb6mp4onjsod" path="res://resources/structures/empty_space.tres" id="9_heyfk"]
 
 [node name="full shop" type="Control" unique_id=204616710]
 layout_mode = 3
@@ -28,6 +29,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=12755224]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
 
 [node name="ShopSpace" parent="HBoxContainer/VBoxContainer" unique_id=825938650 instance=ExtResource("1_pqk88")]
 layout_mode = 2
@@ -38,3 +40,12 @@ allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("4_7pl7n"), ExtR
 layout_mode = 2
 size_flags_vertical = 3
 allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("5_80q0p")])
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1325961197]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopSpace" parent="HBoxContainer/VBoxContainer2" unique_id=516955586 instance=ExtResource("1_pqk88")]
+layout_mode = 2
+size_flags_vertical = 3
+allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("9_heyfk")])

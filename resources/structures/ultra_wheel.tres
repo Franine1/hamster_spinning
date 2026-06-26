@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c5hvqxh4thccw"]
 
-[ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_uant8"]
+[ext_resource type="AudioStream" uid="uid://d3ixixddcfd02" path="res://sfx/hamster factory sounds/squeak.wav" id="1_uant8"]
 [ext_resource type="Texture2D" uid="uid://c5wgdjgnln3cs" path="res://assets/sprites/UltraWheelSpritesheet.PNG" id="2_uant8"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_wypm6"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_8cntp"]
@@ -16,6 +16,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_uant8")
 placement_sound = ExtResource("3_wypm6")
 food_input = 8.0
+max_food_storage = 240.0
 HP_output = 15.0
 feature_copy_mode = 1
 price = 1000.0

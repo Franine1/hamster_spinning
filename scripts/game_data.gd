@@ -240,7 +240,7 @@ func add_space(input: int) -> void:
 		return
 	var ans = 1 << input
 	
-	extra_space = extra_space & (!ans)
+	extra_space = (extra_space & (~ans))
 	extra_space += ans
 
 func get_space() -> int:
