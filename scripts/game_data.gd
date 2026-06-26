@@ -6,44 +6,17 @@ static var main: GameData
 var hamster_power: float = 0.0
 var money: float = 0.0
 var food: float = 0.0
-var food_in_hand: float = 0.0
 
 var hp_recordings: Dictionary[float,float] = {}
 var money_recordings: Dictionary[float,float] = {}
 var food_recordings: Dictionary[float,float] = {}
 
 var current_blueprint: Structure = null
-var current_tooltips: Array[tooltip]
+var current_tooltip: String = ""
+var tooltip_timer: float = -1.0
+var tooltip_start: float = 0.0
 
 var unlocks: Dictionary[int,int]
-
-class tooltip:
-	var label: String
-	var start_time: float
-	var duration: float 
-	var channel: String = ""
-	
-	func _init(_label: String, _duration: float = 0.5) -> void:
-		rename(_label)
-		refresh(_duration)
-	
-	func finished() -> bool:
-		return Time.get_unix_time_from_system() >= (duration + start_time)
-	
-	func set_channel(input: String) -> void:
-		if input.length() > 0:
-			channel = input
-		else:
-			channel = ""
-	
-	func rename(input: String) -> void:
-		label = input
-	
-	func refresh(_duration: float = 0.5) -> void:
-		start_time = Time.get_unix_time_from_system()
-		duration = _duration
-		
-
 
 signal blueprint_changed(blueprint: Structure)
 
@@ -163,36 +136,22 @@ func set_blueprint(input: Structure = null) -> void:
 func get_blueprint() -> Structure:
 	return current_blueprint
 
-func set_tooltip(input: String = "", time: float = 0.5, channel: String = "") -> void:
+func set_tooltip(input: String = "", time: float = -1.0) -> void:
+	current_tooltip = input
+	
 	if time > 0.0:
-		if channel.length() > 0:
-			for item in current_tooltips:
-				if item.channel == channel:
-					item.rename(input)
-					item.refresh(time)
-					return
-		
-		var next: tooltip = tooltip.new(input,time)
-		next.set_channel(channel)
-		current_tooltips.append(next)
+		tooltip_timer = time
+		tooltip_start = Time.get_unix_time_from_system()
+	else:
+		tooltip_timer = -1.0
 
-func get_tooltip() -> Array[String]:
+func get_tooltip() -> String:
 	
-	var ans: Array[String] = []
+	if tooltip_timer >= 0.0:
+		if Time.get_unix_time_from_system() >= (tooltip_timer + tooltip_start):
+			return ""
 	
-	var removed: Array[int] = []
-	
-	for i in current_tooltips.size():
-		if current_tooltips[i].finished():
-			removed.append(i)
-		else:
-			ans.append(current_tooltips[i].label)
-	
-	for i in range(removed.size()-1,-1,-1):
-		current_tooltips.remove_at(removed[i])
-	
-	return ans
-
+	return current_tooltip
 
 func add_unlocks(input: Structure) -> void:
 	for i in input.upgrade_tree:
@@ -201,6 +160,7 @@ func add_unlocks(input: Structure) -> void:
 			unlocks[i] = max(input.tier+1,unlocks[i])
 		else:
 			unlocks[i] = input.tier+1
+
 
 
 func is_unlocked(input: Structure) -> bool:
@@ -217,19 +177,3 @@ func is_unlocked(input: Structure) -> bool:
 			return ans
 	
 	return ans
-
-func grab_food() -> void:
-	food_in_hand = food
-	set_food(0.0)
-
-func release_food() -> void:
-	change_food(food_in_hand)
-	food_in_hand = 0.0
-
-func take_food(amount: float) -> float:
-	var reduction = min(food_in_hand,amount)
-	food_in_hand -= reduction
-	return reduction
-
-func held_food() -> float:
-	return food_in_hand

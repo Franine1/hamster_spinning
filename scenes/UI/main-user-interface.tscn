@@ -139,6 +139,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/MarginContainer/HBoxContainer" unique_id=829689929]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/PanelContainer3" unique_id=504856843]
