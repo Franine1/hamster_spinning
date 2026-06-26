@@ -1,18 +1,24 @@
-[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c6odjy81xqlen"]
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://bsma6cyp58v2d"]
 
-[ext_resource type="Texture2D" uid="uid://cgxcb4coflw7e" path="res://assets/icon.svg" id="1_ynuwf"]
-[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_beg43"]
+[ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_fpxx1"]
+[ext_resource type="Texture2D" uid="uid://7tnthluyt7po" path="res://assets/sprites/WoodWheelSpritesheet.PNG" id="2_pbnjk"]
+[ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_lb0qm"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_ailpf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhk1s"]
+atlas = ExtResource("2_pbnjk")
+region = Rect2(0, 0, 64, 62)
 
 [resource]
-script = ExtResource("2_beg43")
-image = ExtResource("1_ynuwf")
+script = ExtResource("4_ailpf")
+image = SubResource("AtlasTexture_dhk1s")
 size = Vector2i(128, 128)
-food_input = 3.0
-HP_output = 5.0
-feature_copy_mode = 1
-price = 500.0
+click_sound = ExtResource("1_fpxx1")
+placement_sound = ExtResource("3_lb0qm")
+food_input = 0.5
+HP_output = 1.0
+price = 100.0
 description = "Wooden Wheel"
-tooltip_hint = "Upgrade one of your mouse wheels to increase production!"
-tier = 1
+tooltip_hint = "Hire a mouse to help your factory out!"
 upgrade_tree = Array[int]([1])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

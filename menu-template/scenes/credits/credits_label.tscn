@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fx0eggp8w30b"]
 
-[ext_resource type="Script" path="res://addons/maaacks_menus_template/base/nodes/labels/credits_label.gd" id="1_ee13e"]
+[ext_resource type="Script" uid="uid://cc2wtqasev7le" path="res://addons/maaacks_menus_template/base/nodes/labels/credits_label.gd" id="1_ee13e"]
 
 [node name="CreditsLabel" type="RichTextLabel" unique_id=525943618]
 anchors_preset = 15
@@ -13,10 +13,16 @@ size_flags_vertical = 5
 bbcode_enabled = true
 text = "[font_size=48]Collaborators[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
+[font_size=32]Developers[/font_size]
+[url=https://franine1.itch.io/]Matthew Lisko[/url]
+[url=https://xenoyle.itch.io/]Connor Floyd[/url]
+[url=https://rune123.itch.io/]James Plant[/url]
+
+[font_size=32]Artists[/font_size]
+Abbey Pierce
+
+[font_size=32]Music and SFX[/font_size]
+[url=https://rune123.itch.io/]James Plant[/url]
 
 [font_size=48]Sourced[/font_size]
 [font_size=32]Asset Type[/font_size]

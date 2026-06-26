@@ -7,7 +7,7 @@
 [James Plant](https://rune123.itch.io/)
 
 ### Artists
-Abbey Pierce
+[Abbey Pierce](https://www.instagram.com/starbbeey?igsh=ZjVqM2d2cW5tdnlt)
 
 ### Music and SFX
 [James Plant](https://rune123.itch.io/)
