@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c6odjy81xqlen"]
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c81ykxr2treg0"]
 
 [ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_5dflb"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_4a1u8"]

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ktn7as76xyyk" path="res://scenes/UI/shop_space.tscn" id="1_pqk88"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_tqonu"]
-[ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/wooden_wheel.tres" id="3_gf2xt"]
-[ext_resource type="Resource" uid="uid://c6odjy81xqlen" path="res://resources/structures/copper_wheel.tres" id="4_7pl7n"]
+[ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/wooden_wheel.tres" id="4_7pl7n"]
+[ext_resource type="Resource" uid="uid://c81ykxr2treg0" path="res://resources/structures/copper_wheel.tres" id="4_80q0p"]
 [ext_resource type="Resource" uid="uid://c8vc35ppu8bnj" path="res://resources/structures/silver_wheel.tres" id="5_7pl7n"]
 [ext_resource type="Resource" uid="uid://cubaq7umb5a1c" path="res://resources/structures/money_printer.tres" id="5_80q0p"]
 [ext_resource type="Resource" uid="uid://crubq0xpl7j0u" path="res://resources/structures/golden_wheel.tres" id="6_80q0p"]
@@ -32,7 +32,7 @@ size_flags_horizontal = 3
 [node name="ShopSpace" parent="HBoxContainer/VBoxContainer" unique_id=825938650 instance=ExtResource("1_pqk88")]
 layout_mode = 2
 size_flags_vertical = 3
-allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("3_gf2xt"), ExtResource("4_7pl7n"), ExtResource("5_7pl7n"), ExtResource("6_80q0p"), ExtResource("7_80q0p")])
+allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("4_7pl7n"), ExtResource("4_80q0p"), ExtResource("5_7pl7n"), ExtResource("6_80q0p"), ExtResource("7_80q0p")])
 
 [node name="ShopSpace2" parent="HBoxContainer/VBoxContainer" unique_id=104941021 instance=ExtResource("1_pqk88")]
 layout_mode = 2
