@@ -16,9 +16,10 @@ func on_click() -> void:
 func _process(delta: float) -> void:
 	super(delta)
 	
+	
 	var game: GameData = GameData.get_game()
 	
-	if (!Input.is_action_pressed("Place Structure") or game.held_food() <= 0.0) and mouse_held:
+	if mouse_held and (!Input.is_action_pressed("Place Structure") or game.held_food() <= 0.0):
 		mouse_held = false
 		game.release_food()
 	
