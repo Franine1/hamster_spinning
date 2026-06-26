@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://clfmpko8uq8w0"]
+
+[ext_resource type="Texture2D" uid="uid://bt73jt8tglwt0" path="res://assets/wall_temporary.tres" id="1_6y737"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_b87vp"]
+
+[resource]
+script = ExtResource("2_b87vp")
+image = ExtResource("1_6y737")
+size = Vector2i(64, 64)
+money_input = 5.0
+food_output = 10.0
+feature_copy_mode = 1
+price = 150.0
+purchase_resource = 1
+description = "Monkey Printer :)"
+tooltip_hint = "prints many monkeys"
+upgrade_tree = Array[int]([2])
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

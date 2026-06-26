@@ -1,25 +1,41 @@
 [gd_scene format=3 uid="uid://dc8776pgafhft"]
 
 [ext_resource type="Script" uid="uid://sar2d3wlid1d" path="res://scenes/UI/cursor_tooltip.gd" id="1_6b457"]
-[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="2_jlnsx"]
+
+[sub_resource type="Gradient" id="Gradient_jlnsx"]
+colors = PackedColorArray(0.4509804, 0.29411766, 0.11372549, 1, 0.4509804, 0.29411766, 0.11372549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_jlnsx")
+width = 8
+height = 8
 
 [node name="cursor_tooltip" type="Node2D" unique_id=2097758532]
 z_index = 1000
 script = ExtResource("1_6b457")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=214263237]
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("2_jlnsx")
+[node name="food_particles" type="CPUParticles2D" parent="." unique_id=159916041]
+unique_name_in_owner = true
+z_index = 150
+amount = 32
+texture = SubResource("GradientTexture2D_yf5fn")
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 16.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angular_velocity_min = 20.0
+angular_velocity_max = 25.0
+linear_accel_min = -25.0
+linear_accel_max = -25.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer" unique_id=956057516]
-layout_mode = 2
-ratio = 1.5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/AspectRatioContainer" unique_id=656521397]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1594609060]
 unique_name_in_owner = true
 custom_maximum_size = Vector2(600, -1)
-layout_mode = 2
-theme = ExtResource("2_jlnsx")
-fit_content = true
-scroll_active = false
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
