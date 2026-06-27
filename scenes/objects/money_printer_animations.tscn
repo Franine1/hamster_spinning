@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c1xlvg1gwmd43"]
+
+[ext_resource type="SpriteFrames" uid="uid://clkuh8kbnrmi5" path="res://resources/sprite frames/printer_animation.tres" id="1_ehpql"]
+[ext_resource type="Script" uid="uid://cxaq8c2i7wisi" path="res://scripts/animation_manager.gd" id="2_n161t"]
+
+[node name="AnimationManager" type="AnimatedSprite2D" unique_id=448386202]
+sprite_frames = ExtResource("1_ehpql")
+script = ExtResource("2_n161t")
+metadata/_custom_type_script = "uid://cxaq8c2i7wisi"

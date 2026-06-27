@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://crubq0xpl7j0u"]
 
 [ext_resource type="AudioStream" uid="uid://d3ixixddcfd02" path="res://sfx/hamster factory sounds/squeak.wav" id="1_8tprd"]
+[ext_resource type="PackedScene" uid="uid://c4o3h4pwkuc7x" path="res://scenes/objects/golden_wheel.tscn" id="1_web6f"]
 [ext_resource type="Texture2D" uid="uid://d1f2ppfj308ht" path="res://assets/sprites/GoldWheelSpritesheet.PNG" id="2_8tprd"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_8dms5"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_aoyr2"]
@@ -12,6 +13,7 @@ region = Rect2(0, 0, 64, 62)
 [resource]
 script = ExtResource("4_aoyr2")
 image = SubResource("AtlasTexture_j57xp")
+animation_scene = ExtResource("1_web6f")
 size = Vector2i(128, 128)
 click_sound = ExtResource("1_8tprd")
 placement_sound = ExtResource("3_8dms5")
@@ -19,7 +21,7 @@ food_input = 4.0
 max_food_storage = 160.0
 HP_output = 10.0
 feature_copy_mode = 1
-price = 1000.0
+price = 3500.0
 description = "Golden Wheel"
 tooltip_hint = "Upgrade one of your mouse wheels to increase production!"
 tier = 3

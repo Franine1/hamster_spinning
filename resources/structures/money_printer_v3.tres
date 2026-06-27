@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://dt528deln8fvc"]
+
+[ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_7yig3"]
+[ext_resource type="PackedScene" uid="uid://c1xlvg1gwmd43" path="res://scenes/objects/money_printer_animations.tscn" id="1_fkcra"]
+[ext_resource type="Texture2D" uid="uid://ctsnyk7witpgk" path="res://assets/sprites/PrinterSpritesheet.PNG" id="2_fkcra"]
+[ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_cwbkf"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_6rt7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dxvh"]
+atlas = ExtResource("2_fkcra")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+script = ExtResource("4_6rt7s")
+image = SubResource("AtlasTexture_1dxvh")
+animation_scene = ExtResource("1_fkcra")
+size = Vector2i(64, 64)
+click_sound = ExtResource("1_7yig3")
+placement_sound = ExtResource("3_cwbkf")
+HP_input = 2.5
+money_output = 5.0
+price = 1200.0
+purchase_resource = 1
+description = "Money Printer V3"
+tooltip_hint = "Uses H.P. to print wads of cash"
+tier = 2
+upgrade_tree = Array[int]([2])
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

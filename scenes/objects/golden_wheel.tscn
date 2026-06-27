@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4o3h4pwkuc7x"]
+
+[ext_resource type="SpriteFrames" uid="uid://c7lm8g4ykq1d" path="res://resources/sprite frames/wheel_animations.tres" id="1_f0d2b"]
+[ext_resource type="Script" uid="uid://cxaq8c2i7wisi" path="res://scripts/animation_manager.gd" id="2_enxjl"]
+
+[node name="AnimationManager" type="AnimatedSprite2D" unique_id=806687054]
+sprite_frames = ExtResource("1_f0d2b")
+animation = &"golden"
+speed_scale = 2.0
+script = ExtResource("2_enxjl")
+metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
+
+[node name="AnimationManager" type="AnimatedSprite2D" parent="." unique_id=906381787]
+sprite_frames = ExtResource("1_f0d2b")
+animation = &"hamster"
+speed_scale = 2.0
+script = ExtResource("2_enxjl")
+metadata/_custom_type_script = "uid://cxaq8c2i7wisi"

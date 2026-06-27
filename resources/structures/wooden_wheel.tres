@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://bsma6cyp58v2d"]
 
 [ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_fpxx1"]
+[ext_resource type="PackedScene" uid="uid://dgbs1biiqya8a" path="res://scenes/objects/wooden_wheel.tscn" id="1_pbnjk"]
 [ext_resource type="Texture2D" uid="uid://7tnthluyt7po" path="res://assets/sprites/WoodWheelSpritesheet.PNG" id="2_pbnjk"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_lb0qm"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_ailpf"]
@@ -12,6 +13,7 @@ region = Rect2(0, 0, 64, 62)
 [resource]
 script = ExtResource("4_ailpf")
 image = SubResource("AtlasTexture_dhk1s")
+animation_scene = ExtResource("1_pbnjk")
 size = Vector2i(128, 128)
 click_sound = ExtResource("1_fpxx1")
 placement_sound = ExtResource("3_lb0qm")

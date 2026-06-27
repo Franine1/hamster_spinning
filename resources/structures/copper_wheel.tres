@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c81ykxr2treg0"]
 
-[ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_5dflb"]
+[ext_resource type="AudioStream" uid="uid://d3ixixddcfd02" path="res://sfx/hamster factory sounds/squeak.wav" id="1_5dflb"]
+[ext_resource type="PackedScene" uid="uid://csuxemskxtfg6" path="res://scenes/objects/copper_wheel.tscn" id="1_x3845"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_4a1u8"]
 [ext_resource type="Texture2D" uid="uid://2tx216gck23t" path="res://assets/sprites/CopperWheelSpritesheet.PNG" id="2_x3845"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_tac41"]
@@ -12,6 +13,7 @@ region = Rect2(0, 0, 64, 62)
 [resource]
 script = ExtResource("2_4a1u8")
 image = SubResource("AtlasTexture_pj8th")
+animation_scene = ExtResource("1_x3845")
 size = Vector2i(128, 128)
 click_sound = ExtResource("1_5dflb")
 placement_sound = ExtResource("3_tac41")
@@ -19,7 +21,7 @@ food_input = 1.0
 max_food_storage = 50.0
 HP_output = 3.0
 feature_copy_mode = 1
-price = 500.0
+price = 300.0
 description = "Copper Wheel"
 tooltip_hint = "Upgrade one of your mouse wheels to increase production!"
 tier = 1
