@@ -29,6 +29,13 @@ func _ready() -> void:
 	click_player.volume_db = -2
 	add_child(click_player)
 
+func recolor_image(vp: SubViewport, index: int) -> void:
+	await RenderingServer.frame_post_draw
+	var img: ImageTexture = ImageTexture.create_from_image(vp.get_texture().get_image())
+	set_item_icon(index,img)
+	remove_child(vp)
+	vp.queue_free()
+
 func display_items() -> void:
 	item_count = 0
 	
@@ -40,6 +47,21 @@ func display_items() -> void:
 		img.set_size_override(Vector2(struct.size))
 		
 		var indx: int = add_item(struct.description,img,true)
+		
+		if struct.recolor != null:
+			var temp: Sprite2D = Sprite2D.new()
+			temp.texture = img
+			temp.material = struct.recolor
+			var vp: SubViewport = SubViewport.new()
+			vp.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+			vp.transparent_bg = true
+			vp.render_target_update_mode = SubViewport.UPDATE_ONCE
+			vp.size = img.get_size()
+			vp.add_child(temp)
+			temp.position += img.get_size()/2.0
+			add_child(vp)
+			
+			recolor_image(vp,indx)
 		
 		#set_item_tooltip(indx,struct.tooltip())
 		#set_item_tooltip_enabled(indx,true)
@@ -96,8 +118,12 @@ func _process(_delta: float) -> void:
 			var bp: Structure = allowed_structures[linked_list[id]]
 			var cost: Vector3 = bp.cost()
 			if Structure.affordable(cost):
-				Structure.expend(cost)
-				game.set_blueprint(bp)
+				if bp.purchase_hints.has("win"):
+					remove_item(id)
+					game.declare_victory()
+				else:
+					Structure.expend(cost)
+					game.set_blueprint(bp)
 			else:
 				# cannot afford structure
 				pass

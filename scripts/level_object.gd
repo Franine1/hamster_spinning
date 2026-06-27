@@ -58,6 +58,9 @@ func terminate() -> void:
 	queue_free()
 
 
+
+
+
 ## Corrects the sprite2D and collision shape based on the input structure
 func refresh(input: Structure = template, use_animation: bool = false) -> void:
 	template = input
@@ -81,13 +84,19 @@ func refresh(input: Structure = template, use_animation: bool = false) -> void:
 		add_sibling.call_deferred(sprite)
 		
 	
+	sprite.use_parent_material = true
+	
 	if placement_mode == mode.HOVER:
 		click_player.stream = template.placement_sound
 	else:
 		click_player.stream = template.click_sound
+		
+		if template.recolor != null:
+			sprite.use_parent_material = false
+			sprite.material = template.recolor
+			print("found")
 	
 	var bounds = template.size
-	sprite.use_parent_material = true
 	
 	
 	if sprite is Sprite2D:
@@ -199,6 +208,7 @@ func _process(delta: float) -> void:
 						
 						var temp = self.duplicate()
 						temp.placement_mode = mode.PLACED
+						
 						if get_parent() is CanvasGroup:
 							get_parent().add_sibling(temp)
 						else:
@@ -290,7 +300,7 @@ func _process(delta: float) -> void:
 			
 			if hovering:
 				var extra_tooltip: String = template.description if template.do_visibility else ""
-
+				var reported_output = output if template.constant_output else 1.0
 				# Extra tooltip for efficiency
 				# if template.constant_output:
 				# 	extra_tooltip += "\n"
@@ -310,13 +320,13 @@ func _process(delta: float) -> void:
 				# Outputs tooltip
 				if template.HP_output > 0.0:
 					extra_tooltip += "\n"
-					extra_tooltip += "HP Output: " + str(snapped(template.HP_output,0.1))
+					extra_tooltip += "HP Output: " + str(snapped(template.HP_output*reported_output,0.1))
 				if template.money_output > 0.0:
 					extra_tooltip += "\n"
-					extra_tooltip += "Money Output: " + str(snapped(template.money_output,0.1))
+					extra_tooltip += "Money Output: " + str(snapped(template.money_output*reported_output,0.1))
 				if template.food_output > 0.0:
 					extra_tooltip += "\n"
-					extra_tooltip += "Food Output: " + str(snapped(template.food_output,0.1))
+					extra_tooltip += "Food Output: " + str(snapped(template.food_output*reported_output,0.1))
 
 				# Food storage tooltip
 				if template.max_food_storage > 0.0:

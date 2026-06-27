@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctsnyk7witpgk" path="res://assets/sprites/PrinterSpritesheet.PNG" id="2_7sj2p"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_f7lhd"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_ryjsa"]
+[ext_resource type="Material" uid="uid://c5wuiqjvgada5" path="res://resources/materials/printer2.tres" id="5_f7lhd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dxvh"]
 atlas = ExtResource("2_7sj2p")
@@ -14,6 +15,7 @@ region = Rect2(32, 32, 32, 32)
 script = ExtResource("4_ryjsa")
 image = SubResource("AtlasTexture_1dxvh")
 animation_scene = ExtResource("1_7sj2p")
+recolor = ExtResource("5_f7lhd")
 size = Vector2i(64, 64)
 click_sound = ExtResource("1_kxqhv")
 placement_sound = ExtResource("3_f7lhd")

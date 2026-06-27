@@ -18,6 +18,8 @@ var current_tooltips: Array[tooltip]
 var unlocks: Dictionary[int,int]
 var extra_space: int = 0
 
+var has_won: bool = false
+
 class tooltip:
 	var label: String
 	var start_time: float
@@ -47,7 +49,7 @@ class tooltip:
 
 
 signal blueprint_changed(blueprint: Structure)
-
+signal victory()
 
 static func _static_init() -> void:
 	if (main == null) or !(main is GameData):
@@ -246,3 +248,10 @@ func add_space(input: int) -> void:
 
 func get_space() -> int:
 	return extra_space
+
+func declare_victory() -> void:
+	has_won = true
+	victory.emit()
+
+func is_victory_achieved() -> bool:
+	return has_won

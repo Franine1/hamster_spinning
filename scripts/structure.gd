@@ -4,6 +4,7 @@ extends Resource
 @export_category("Display")
 @export var image: Texture2D
 @export var animation_scene: PackedScene = null
+@export var recolor: ShaderMaterial
 @export var size: Vector2i
 @export var do_physics: bool = true
 @export var do_visibility: bool = true
@@ -37,6 +38,7 @@ extends Resource
 @export var tooltip_hint: String = ""
 @export var tier: int = 0
 @export var upgrade_tree: Array[int] = []
+@export var purchase_hints: Array[String] = []
 
 
 enum material_type {

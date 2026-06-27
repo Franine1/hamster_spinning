@@ -7,7 +7,6 @@
 [ext_resource type="Material" uid="uid://c1dsxohnyk0l5" path="res://resources/materials/placement_viability.tres" id="4_v1cdj"]
 [ext_resource type="Resource" uid="uid://ohbmblgfsdon" path="res://resources/structures/main_wheel.tres" id="5_rsx1v"]
 [ext_resource type="Script" uid="uid://qebyolljllvy" path="res://scripts/placement_point.gd" id="6_gbr35"]
-[ext_resource type="Resource" uid="uid://chonlemilf88i" path="res://resources/structures/feeder_button.tres" id="7_k7s47"]
 [ext_resource type="Resource" uid="uid://dlynwdut2sxeo" path="res://resources/structures/feeder_button2.tres" id="8_8wf8w"]
 [ext_resource type="Script" uid="uid://r6oklbrjn480" path="res://scripts/feeder.gd" id="8_ggwy0"]
 [ext_resource type="Resource" uid="uid://852s64oc6ra7" path="res://resources/structures/feeder.tres" id="8_yo12r"]
@@ -44,22 +43,13 @@ template = ExtResource("5_rsx1v")
 placement_mode = 2
 metadata/_custom_type_script = "uid://gn3taa04k7sx"
 
-[node name="feeder_button" type="StaticBody2D" parent="." unique_id=144766849]
-unique_name_in_owner = true
-position = Vector2(-448, 192)
-script = ExtResource("4_rsx1v")
-template = ExtResource("7_k7s47")
-placement_mode = 2
-clickable_text = "Click to purchase food"
-metadata/_custom_type_script = "uid://gn3taa04k7sx"
-
 [node name="feeder_button2" type="StaticBody2D" parent="." unique_id=634973119]
 unique_name_in_owner = true
-position = Vector2(-512, 192)
+position = Vector2(-480, 192)
 script = ExtResource("4_rsx1v")
 template = ExtResource("8_8wf8w")
 placement_mode = 2
-clickable_text = "Click to purchase food"
+clickable_text = "Click to Purchase Food"
 metadata/_custom_type_script = "uid://gn3taa04k7sx"
 
 [node name="feeder" type="StaticBody2D" parent="." unique_id=324133420]
