@@ -119,7 +119,8 @@ func _process(_delta: float) -> void:
 			var cost: Vector3 = bp.cost()
 			if Structure.affordable(cost):
 				if bp.purchase_hints.has("win"):
-					remove_item(id)
+					erase_item(id)
+					Structure.expend(cost)
 					game.declare_victory()
 				else:
 					Structure.expend(cost)
@@ -132,3 +133,8 @@ func _process(_delta: float) -> void:
 		deselect_all()
 	
 	#print(get_tooltip(get_local_mouse_position()))
+
+
+func erase_item(index: int) -> void:
+	remove_item(index)
+	linked_list.erase(index)

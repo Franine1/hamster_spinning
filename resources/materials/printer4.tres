@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://gon85usenekj"]
+
+[ext_resource type="Shader" uid="uid://cm0pscr6klbey" path="res://resources/materials/recolor.gdshader" id="1_xofms"]
+
+[resource]
+shader = ExtResource("1_xofms")
+shader_parameter/original_color = PackedColorArray(0.4862745, 0.45882353, 0.54509807, 1, 0.3647059, 0.34901962, 0.45490196, 1, 0.3019608, 0.3019608, 0.39607844, 1, 0.4, 0.3764706, 0.48235294, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/replacement_color = PackedColorArray(0.6117647, 0.39215687, 0.87058824, 1, 0.3882353, 0.14117648, 0.68235296, 1, 0.28235295, 0.12941177, 0.4627451, 1, 0.3882353, 0.14117648, 0.68235296, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

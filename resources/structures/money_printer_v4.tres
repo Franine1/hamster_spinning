@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://cuh6sgktg2se6"]
+
+[ext_resource type="PackedScene" uid="uid://c1xlvg1gwmd43" path="res://scenes/objects/money_printer_animations.tscn" id="1_af0yk"]
+[ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="2_rtyxa"]
+[ext_resource type="Texture2D" uid="uid://ctsnyk7witpgk" path="res://assets/sprites/PrinterSpritesheet.PNG" id="3_3mc3w"]
+[ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="4_jawau"]
+[ext_resource type="Material" uid="uid://gon85usenekj" path="res://resources/materials/printer4.tres" id="5_af0yk"]
+[ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="6_cfmtx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dxvh"]
+atlas = ExtResource("3_3mc3w")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+script = ExtResource("6_cfmtx")
+image = SubResource("AtlasTexture_1dxvh")
+animation_scene = ExtResource("1_af0yk")
+recolor = ExtResource("5_af0yk")
+size = Vector2i(64, 64)
+click_sound = ExtResource("2_rtyxa")
+placement_sound = ExtResource("4_jawau")
+HP_input = 4.0
+money_output = 12.5
+price = 5500.0
+purchase_resource = 1
+description = "Money Printer V4"
+tooltip_hint = "Uses H.P. to print wads of cash"
+tier = 3
+upgrade_tree = Array[int]([2])
+metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"
