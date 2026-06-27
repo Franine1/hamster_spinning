@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 	
 	var tooltip_strings: Array[String] = game.get_tooltip()
 	
-	global_position = get_global_mouse_position()
+	global_position = get_global_mouse_position() - tooltip_container.get_combined_minimum_size() * 0.5
 	
 	
 	fix_textboxes(tooltip_strings)
