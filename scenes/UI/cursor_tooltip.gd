@@ -11,7 +11,18 @@ func _process(_delta: float) -> void:
 	
 	var tooltip_strings: Array[String] = game.get_tooltip()
 	
+	# centered on mouse by default
 	global_position = get_global_mouse_position() - tooltip_container.get_combined_minimum_size() * 0.5
+	# Reject going past screen vertically
+	if global_position.y < 10:
+		global_position.y = 10
+	# Reject going past screen left
+	if global_position.x < 10:
+		global_position.x = 10
+	# Reject going past screen right
+	if global_position.x + tooltip_container.get_combined_minimum_size().x > get_viewport_rect().size.x - 10:
+		global_position.x = get_viewport_rect().size.x - tooltip_container.get_combined_minimum_size().x - 10
+	
 	
 	
 	fix_textboxes(tooltip_strings)
