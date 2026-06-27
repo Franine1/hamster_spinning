@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dgbs1biiqya8a"]
+
+[ext_resource type="SpriteFrames" uid="uid://c7lm8g4ykq1d" path="res://resources/sprite frames/wheel_animations.tres" id="1_u8v8y"]
+[ext_resource type="Script" uid="uid://cxaq8c2i7wisi" path="res://scripts/animation_manager.gd" id="8_2ovpy"]
+
+[node name="AnimationManager" type="AnimatedSprite2D" unique_id=806687054]
+sprite_frames = ExtResource("1_u8v8y")
+animation = &"wooden"
+speed_scale = 2.0
+script = ExtResource("8_2ovpy")
+metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
+
+[node name="AnimationManager" type="AnimatedSprite2D" parent="." unique_id=906381787]
+sprite_frames = ExtResource("1_u8v8y")
+animation = &"worker"
+speed_scale = 2.0
+script = ExtResource("8_2ovpy")
+metadata/_custom_type_script = "uid://cxaq8c2i7wisi"

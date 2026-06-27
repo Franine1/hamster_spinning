@@ -41,7 +41,7 @@ func _ready() -> void:
 	add_child(collider)
 	
 	if template != null:
-		get_tree().create_timer(0.05).timeout.connect(refresh.bind(template,(placement_mode == mode.PLACED)))
+		refresh.call_deferred(template,(placement_mode == mode.PLACED))
 	
 	
 
@@ -235,8 +235,7 @@ func _process(delta: float) -> void:
 										replacement.constant_output = temp_old.constant_output or replacement.constant_output
 										replacement.partial_output = temp_old.partial_output or replacement.partial_output
 									
-								temp.template = replacement
-								
+								get_tree().create_timer(0.1).timeout.connect(temp.refresh.bind(replacement,true))
 						
 						game.set_blueprint()
 						game.add_unlocks(template)
@@ -253,6 +252,7 @@ func _process(delta: float) -> void:
 			collision_mask = 0
 			z_index = 19
 			modulate = Color(1.0,1.0,1.0,1.0) if template.do_visibility else Color(1.0,1.0,1.0,0.0)
+			sprite.modulate = modulate
 			
 			
 			var hovering: bool = contacts(mouse_pos) and game.get_blueprint() == null
@@ -262,6 +262,7 @@ func _process(delta: float) -> void:
 				var food_request: float = template.max_food_storage - stored_food
 				if food_request >= 0.0:
 					stored_food += game.take_food(food_request)
+				
 				
 				
 				if template.clickable:
@@ -283,7 +284,7 @@ func _process(delta: float) -> void:
 			
 			
 			if hovering:
-				var extra_tooltip: String = template.description
+				var extra_tooltip: String = template.description if template.do_visibility else ""
 				if template.constant_output:
 					extra_tooltip += "\n"
 					extra_tooltip += "Efficiency: " + str(snapped(output* 100.0,0.1))
@@ -291,7 +292,7 @@ func _process(delta: float) -> void:
 					extra_tooltip += "\n"
 					extra_tooltip += "Food Storage: " + str(snapped(stored_food,0.1)) + "/" + str(snapped(template.max_food_storage,0.1))
 				
-				if extra_tooltip.length() > 0:
+				if extra_tooltip.length() > 0 and template.do_visibility:
 					game.set_tooltip(extra_tooltip,0.05, "production_tooltip")
 
 

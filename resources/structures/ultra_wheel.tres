@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://c5hvqxh4thccw"]
 
+[ext_resource type="PackedScene" uid="uid://ds7yee1pcg4ok" path="res://scenes/objects/ultra_wheel.tscn" id="1_0blkq"]
 [ext_resource type="AudioStream" uid="uid://d3ixixddcfd02" path="res://sfx/hamster factory sounds/squeak.wav" id="1_uant8"]
 [ext_resource type="Texture2D" uid="uid://c5wgdjgnln3cs" path="res://assets/sprites/UltraWheelSpritesheet.PNG" id="2_uant8"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_wypm6"]
@@ -12,6 +13,7 @@ region = Rect2(0, 0, 64, 62)
 [resource]
 script = ExtResource("4_8cntp")
 image = SubResource("AtlasTexture_q35kj")
+animation_scene = ExtResource("1_0blkq")
 size = Vector2i(128, 128)
 click_sound = ExtResource("1_uant8")
 placement_sound = ExtResource("3_wypm6")
