@@ -22,6 +22,6 @@ max_food_storage = 30.0
 HP_output = 1.0
 price = 100.0
 description = "Wooden Wheel"
-tooltip_hint = "Hire a mouse to help your factory out!"
+tooltip_hint = "Hire a hamster to help your factory out!"
 upgrade_tree = Array[int]([1])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"
