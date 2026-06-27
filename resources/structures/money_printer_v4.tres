@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xlvg1gwmd43" path="res://scenes/objects/money_printer_animations.tscn" id="1_af0yk"]
 [ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="2_rtyxa"]
 [ext_resource type="Texture2D" uid="uid://ctsnyk7witpgk" path="res://assets/sprites/PrinterSpritesheet.PNG" id="3_3mc3w"]
+[ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_rtyxa"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="4_jawau"]
 [ext_resource type="Material" uid="uid://gon85usenekj" path="res://resources/materials/printer4.tres" id="5_af0yk"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="6_cfmtx"]
@@ -19,6 +20,7 @@ recolor = ExtResource("5_af0yk")
 size = Vector2i(64, 64)
 click_sound = ExtResource("2_rtyxa")
 placement_sound = ExtResource("4_jawau")
+error_sound = ExtResource("3_rtyxa")
 HP_input = 4.0
 money_output = 12.5
 price = 5500.0

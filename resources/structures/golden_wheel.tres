@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c4o3h4pwkuc7x" path="res://scenes/objects/golden_wheel.tscn" id="1_web6f"]
 [ext_resource type="Texture2D" uid="uid://d1f2ppfj308ht" path="res://assets/sprites/GoldWheelSpritesheet.PNG" id="2_8tprd"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_8dms5"]
+[ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_aoyr2"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_aoyr2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j57xp"]
@@ -17,6 +18,7 @@ animation_scene = ExtResource("1_web6f")
 size = Vector2i(128, 128)
 click_sound = ExtResource("1_8tprd")
 placement_sound = ExtResource("3_8dms5")
+error_sound = ExtResource("3_aoyr2")
 food_input = 4.0
 max_food_storage = 160.0
 HP_output = 10.0

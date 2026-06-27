@@ -111,13 +111,15 @@ func _process(_delta: float) -> void:
 		
 		if Input.is_action_just_pressed("Place Structure"):
 			##audio
-			click_player.volume_db = -10.0
-			click_player.pitch_scale = randf_range(0.9, 1.1)
-			click_player.play()
+			
 			
 			var bp: Structure = allowed_structures[linked_list[id]]
 			var cost: Vector3 = bp.cost()
 			if Structure.affordable(cost):
+				click_player.volume_db = -10.0
+				click_player.pitch_scale = randf_range(0.9, 1.1)
+				click_player.play()
+				
 				if bp.purchase_hints.has("win"):
 					erase_item(id)
 					Structure.expend(cost)
@@ -127,7 +129,14 @@ func _process(_delta: float) -> void:
 					game.set_blueprint(bp)
 			else:
 				# cannot afford structure
-				pass
+				if bp.error_sound:
+					var p := AudioStreamPlayer.new()
+					p.stream = bp.error_sound
+					p.volume_db = -6
+					p.pitch_scale = randf_range(0.95, 1.05)
+					add_child(p)
+					p.play()
+					p.connect("finished", p.queue_free)
 	else:
 		last_hovered_id = -1
 		deselect_all()

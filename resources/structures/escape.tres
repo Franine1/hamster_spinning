@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://dxmnh4lusnwbm"]
 
+[ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="1_07t04"]
 [ext_resource type="Texture2D" uid="uid://msv55oeluext" path="res://assets/floor_temporary.tres" id="1_lqqi8"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_07t04"]
 
@@ -9,6 +10,7 @@ image = ExtResource("1_lqqi8")
 size = Vector2i(32, 32)
 do_physics = false
 do_visibility = false
+error_sound = ExtResource("1_07t04")
 constant_output = false
 partial_output = false
 price = 32000.0
