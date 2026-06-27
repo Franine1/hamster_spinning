@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_kxqhv"]
 [ext_resource type="Texture2D" uid="uid://ctsnyk7witpgk" path="res://assets/sprites/PrinterSpritesheet.PNG" id="2_7sj2p"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_f7lhd"]
+[ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_ryjsa"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_ryjsa"]
 [ext_resource type="Material" uid="uid://c5wuiqjvgada5" path="res://resources/materials/printer2.tres" id="5_f7lhd"]
 
@@ -19,6 +20,7 @@ recolor = ExtResource("5_f7lhd")
 size = Vector2i(64, 64)
 click_sound = ExtResource("1_kxqhv")
 placement_sound = ExtResource("3_f7lhd")
+error_sound = ExtResource("3_ryjsa")
 HP_input = 0.5
 money_output = 2.0
 price = 250.0

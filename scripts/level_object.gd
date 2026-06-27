@@ -26,6 +26,7 @@ var collider: CollisionShape2D
 var sprite
 var placement_offset: Vector2 = Vector2.ZERO
 var click_player: AudioStreamPlayer
+var error_player: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -36,6 +37,8 @@ func _ready() -> void:
 	click_player = AudioStreamPlayer.new()
 	#click_player.stream = click_sound
 	add_child(click_player)
+	error_player = AudioStreamPlayer.new()
+	add_child(error_player)
 	##audio click
 	collider = CollisionShape2D.new()
 	add_child(collider)
@@ -194,6 +197,14 @@ func _process(delta: float) -> void:
 						recoloration(Color.GREEN)
 					else:
 						recoloration(Color.YELLOW)
+						
+					#if Input.is_action_just_pressed("Place Structure") and !affordable:
+						#if template.error_sound:
+							#error_player.volume_db = -6
+							#error_player.pitch_scale = randf_range(0.95, 1.05)
+							#error_player.play()
+					
+					
 					
 					
 					if Input.is_action_just_pressed("Place Structure") and affordable:
