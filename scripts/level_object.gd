@@ -290,7 +290,7 @@ func _process(delta: float) -> void:
 			
 			if hovering:
 				var extra_tooltip: String = template.description if template.do_visibility else ""
-
+				var reported_output = output if template.constant_output else 1.0
 				# Extra tooltip for efficiency
 				# if template.constant_output:
 				# 	extra_tooltip += "\n"
@@ -310,13 +310,13 @@ func _process(delta: float) -> void:
 				# Outputs tooltip
 				if template.HP_output > 0.0:
 					extra_tooltip += "\n"
-					extra_tooltip += "HP Output: " + str(snapped(template.HP_output,0.1))
+					extra_tooltip += "HP Output: " + str(snapped(template.HP_output*reported_output,0.1))
 				if template.money_output > 0.0:
 					extra_tooltip += "\n"
-					extra_tooltip += "Money Output: " + str(snapped(template.money_output,0.1))
+					extra_tooltip += "Money Output: " + str(snapped(template.money_output*reported_output,0.1))
 				if template.food_output > 0.0:
 					extra_tooltip += "\n"
-					extra_tooltip += "Food Output: " + str(snapped(template.food_output,0.1))
+					extra_tooltip += "Food Output: " + str(snapped(template.food_output*reported_output,0.1))
 
 				# Food storage tooltip
 				if template.max_food_storage > 0.0:
