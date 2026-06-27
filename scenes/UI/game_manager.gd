@@ -20,6 +20,8 @@ func _ready() -> void:
 	var game: GameData = GameData.get_game()
 	
 	game.victory.connect(react_to_victory)
+	
+	game.add_unlocks(preload("res://resources/structures/top_left_space.tres"))
 
 
 func react_to_victory() -> void:

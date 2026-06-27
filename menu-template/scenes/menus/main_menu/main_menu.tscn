@@ -1,20 +1,15 @@
 [gd_scene format=3 uid="uid://2ntqp4n8erfq"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_berfd"]
-[ext_resource type="Theme" uid="uid://3j6fh54pk25t" path="res://assets/menu_theme.tres" id="2_7rfjy"]
 [ext_resource type="Script" uid="uid://b1kjpl13aqe0w" path="res://menu-template/scenes/menus/main_menu/main_menu.gd" id="2_gfn3x"]
 [ext_resource type="PackedScene" uid="uid://buk0c7jacn0s5" path="res://menu-template/scenes/windows/main_menu_options_window.tscn" id="3_7rfjy"]
 [ext_resource type="PackedScene" uid="uid://cpsh46yigbi5o" path="res://menu-template/scenes/windows/main_menu_credits_window.tscn" id="4_hxwr0"]
 [ext_resource type="FontFile" uid="uid://dm87sb8rsofaa" path="res://assets/fonts/ngaco/Ngaco.ttf" id="5_gfn3x"]
 
 [node name="MainMenu" unique_id=869232425 instance=ExtResource("1_berfd")]
-theme = ExtResource("2_7rfjy")
 script = ExtResource("2_gfn3x")
 options_packed_scene = ExtResource("3_7rfjy")
 credits_packed_scene = ExtResource("4_hxwr0")
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="0" unique_id=359406872]
 theme_override_fonts/font = ExtResource("5_gfn3x")
-
-[node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" parent_id_path=PackedInt32Array(930520368) index="0" unique_id=1037003361]
-text = "By: Siglo Studios"
