@@ -15,7 +15,8 @@ func game_animation(time: float) -> void:
 	var my_time = time + delta_offset
 	
 	var frame_total: int = sprite_frames.get_frame_count(animation)
-	frame = clamp(roundi(modulus(my_time,frame_total)),0,frame_total-1)
+	var duration: float = sprite_frames.get_animation_speed(animation)
+	frame = clamp(floori(modulus(my_time,frame_total / duration)*duration),0,frame_total)
 	
 	for child in get_children():
 		if child is AnimationManager:

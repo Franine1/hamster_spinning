@@ -3,7 +3,7 @@ extends Resource
 
 @export_category("Display")
 @export var image: Texture2D
-#@export var animation_scene: PackedScene = preload("foo")
+@export var animation_scene: PackedScene = null
 @export var size: Vector2i
 @export var do_physics: bool = true
 @export var do_visibility: bool = true
@@ -113,3 +113,6 @@ func accepts(input: Structure) -> bool:
 				return true
 	
 	return ans
+
+func get_animation() -> PackedScene:
+	return animation_scene

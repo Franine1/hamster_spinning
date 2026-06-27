@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://cubaq7umb5a1c"]
 
+[ext_resource type="PackedScene" uid="uid://c1xlvg1gwmd43" path="res://scenes/objects/money_printer_animations.tscn" id="1_0poiy"]
 [ext_resource type="AudioStream" uid="uid://moxcm1htd3wy" path="res://sfx/satellite sounds/clicksound.wav" id="1_w0w3y"]
 [ext_resource type="Texture2D" uid="uid://ctsnyk7witpgk" path="res://assets/sprites/PrinterSpritesheet.PNG" id="2_0poiy"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="3_0poiy"]
@@ -12,6 +13,7 @@ region = Rect2(32, 32, 32, 32)
 [resource]
 script = ExtResource("3_0poiy")
 image = SubResource("AtlasTexture_1dxvh")
+animation_scene = ExtResource("1_0poiy")
 size = Vector2i(64, 64)
 click_sound = ExtResource("1_w0w3y")
 placement_sound = ExtResource("3_urrbu")

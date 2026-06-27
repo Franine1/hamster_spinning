@@ -23,7 +23,7 @@ enum mode {
 var stored_food: float = 0.0
 
 var collider: CollisionShape2D
-var sprite: Sprite2D
+var sprite
 var placement_offset: Vector2 = Vector2.ZERO
 var click_player: AudioStreamPlayer
 
@@ -31,17 +31,17 @@ var click_player: AudioStreamPlayer
 func _ready() -> void:
 
 	sprite = Sprite2D.new()
+	add_sibling.call_deferred(sprite)
 	##audio click
 	click_player = AudioStreamPlayer.new()
 	#click_player.stream = click_sound
 	add_child(click_player)
 	##audio click
-	add_sibling.call_deferred(sprite)
 	collider = CollisionShape2D.new()
 	add_child(collider)
 	
 	if template != null:
-		get_tree().create_timer(0.1).timeout.connect(refresh)
+		get_tree().create_timer(0.05).timeout.connect(refresh.bind(template,(placement_mode == mode.PLACED)))
 	
 	
 
@@ -59,33 +59,52 @@ func terminate() -> void:
 
 
 ## Corrects the sprite2D and collision shape based on the input structure
-func refresh(input: Structure = template) -> void:
+func refresh(input: Structure = template, use_animation: bool = false) -> void:
 	template = input
 	
-	if template == null:
-		sprite.texture = null
-		return
+	if template == null or template.get_animation() == null or !use_animation:
+		if !sprite is Sprite2D:
+			sprite.get_parent().remove_child(sprite)
+			sprite.queue_free()
+			sprite = Sprite2D.new()
+			add_sibling.call_deferred(sprite)
+		
+		if template == null:
+			sprite.texture = null
+			return
+		else:
+			sprite.texture = template.image
+	else:
+		sprite.get_parent().remove_child(sprite)
+		sprite.queue_free()
+		sprite = template.get_animation().instantiate()
+		add_sibling.call_deferred(sprite)
+		
 	
 	if placement_mode == mode.HOVER:
 		click_player.stream = template.placement_sound
 	else:
 		click_player.stream = template.click_sound
 	
-	var bounds = input.size
-	
-	sprite.texture = input.image
-	
+	var bounds = template.size
 	sprite.use_parent_material = true
 	
-	sprite.scale = Vector2(bounds) / sprite.texture.get_size()
+	
+	if sprite is Sprite2D:
+		sprite.scale = Vector2(bounds) / sprite.texture.get_size()
+		
+	elif sprite is AnimationManager:
+		var sz = sprite.sprite_frames.get_frame_texture(sprite.animation,sprite.frame).get_size()
+		sprite.scale = Vector2(bounds) / sz
+		
+		sprite.start()
+	
 	
 	var temp: RectangleShape2D = RectangleShape2D.new()
 	temp.size = Vector2(bounds) - Vector2(1.0,1.0)
-	
 	collider.shape = temp
 	
 	placement_offset = (bounds/32.0).ceil()
-	
 	placement_offset *= 16.0
 
 
@@ -264,12 +283,12 @@ func _process(delta: float) -> void:
 			
 			
 			if hovering:
-				var extra_tooltip: String = ""
+				var extra_tooltip: String = template.description
 				if template.constant_output:
+					extra_tooltip += "\n"
 					extra_tooltip += "Efficiency: " + str(snapped(output* 100.0,0.1))
 				if template.max_food_storage > 0.0:
-					if extra_tooltip.length() > 0:
-						extra_tooltip += "\n"
+					extra_tooltip += "\n"
 					extra_tooltip += "Food Storage: " + str(snapped(stored_food,0.1)) + "/" + str(snapped(template.max_food_storage,0.1))
 				
 				if extra_tooltip.length() > 0:
