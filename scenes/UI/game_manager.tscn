@@ -6,6 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://fpn7ex7fdk4w" path="res://scenes/UI/main-user-interface.tscn" id="2_aqc0r"]
 [ext_resource type="PackedScene" uid="uid://ey3fom8etsq0" path="res://scenes/UI/full_shop.tscn" id="5_eka2i"]
 [ext_resource type="PackedScene" uid="uid://dc8776pgafhft" path="res://scenes/UI/cursor_tooltip.tscn" id="5_r72w0"]
+[ext_resource type="AudioStream" uid="uid://mh7lohxkhpla" path="res://music/empty factory.wav" id="7_34ocb"]
+[ext_resource type="AudioStream" uid="uid://b8ceoojmfqait" path="res://music/chime factory.wav" id="8_ugkkn"]
+[ext_resource type="AudioStream" uid="uid://dickypdm22o8r" path="res://music/The Cats Meow.wav" id="9_wbmm5"]
+[ext_resource type="AudioStream" uid="uid://bi0vgm84f6vxb" path="res://music/Falling Blocks.wav" id="10_bqvk7"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_57qmd"]
+shuffle = true
+fade_time = 1.0
+stream_count = 4
+stream_0 = ExtResource("7_34ocb")
+stream_1 = ExtResource("8_ugkkn")
+stream_2 = ExtResource("9_wbmm5")
+stream_3 = ExtResource("10_bqvk7")
 
 [node name="GameManager" type="Control" unique_id=255460626]
 layout_mode = 3
@@ -100,3 +113,9 @@ render_target_update_mode = 4
 [node name="full shop" parent="playable windows/shop container/shop viewport" unique_id=204616710 instance=ExtResource("5_eka2i")]
 
 [node name="cursor_tooltip" parent="." unique_id=2097758532 instance=ExtResource("5_r72w0")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=492924857]
+stream = SubResource("AudioStreamPlaylist_57qmd")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"

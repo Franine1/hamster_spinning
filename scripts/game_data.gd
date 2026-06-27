@@ -224,7 +224,7 @@ func grab_food() -> void:
 	food = 0.0
 
 func release_food() -> void:
-	food = food_in_hand
+	food += food_in_hand
 	food_in_hand = 0.0
 
 func take_food(amount: float) -> float:
