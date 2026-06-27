@@ -282,9 +282,23 @@ func _process(delta: float) -> void:
 			
 			if hovering:
 				
+				#var food_request: float = template.max_food_storage - stored_food
+				#if food_request >= 0.0:
+					#stored_food += game.take_food(food_request)
+					
 				var food_request: float = template.max_food_storage - stored_food
 				if food_request >= 0.0:
-					stored_food += game.take_food(food_request)
+					var taken := game.take_food(food_request)
+					if taken > 0.0:
+						stored_food += taken
+
+						# Play food sound
+						if template.eat_sound:
+							click_player.stream = template.eat_sound
+							click_player.volume_db = -8
+							click_player.pitch_scale = randf_range(0.95, 1.05)
+							click_player.play()
+
 				
 				
 				

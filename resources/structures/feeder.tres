@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Structure" format=3 uid="uid://852s64oc6ra7"]
 
+[ext_resource type="AudioStream" uid="uid://cqbf6i0w82x3r" path="res://sfx/sound library/Path Blocked.wav" id="1_pj8th"]
 [ext_resource type="Texture2D" uid="uid://4gye4pqacwj1" path="res://assets/sprites/FeederSpritesheet.PNG" id="1_x3sqk"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_pj8th"]
 
@@ -11,6 +12,7 @@ region = Rect2(0, 32, 64, 32)
 script = ExtResource("2_pj8th")
 image = SubResource("AtlasTexture_57qmd")
 size = Vector2i(128, 64)
+error_sound = ExtResource("1_pj8th")
 clickable = true
 constant_output = false
 partial_output = false

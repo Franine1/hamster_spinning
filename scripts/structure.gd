@@ -13,6 +13,7 @@ extends Resource
 @export var click_sound: AudioStream
 @export var placement_sound: AudioStream
 @export var error_sound: AudioStream
+@export var eat_sound: AudioStream
 
 @export_category("Input")
 @export var HP_input: float = 0.0

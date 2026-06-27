@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://d0dop5g4sa2h0" path="res://sfx/sound library/Abacus.wav" id="1_6u01s"]
 [ext_resource type="Texture2D" uid="uid://4gye4pqacwj1" path="res://assets/sprites/FeederSpritesheet.PNG" id="1_hmnu7"]
+[ext_resource type="AudioStream" uid="uid://bufk884cog1oc" path="res://sfx/sound library/Start.wav" id="2_5so6b"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_6u01s"]
 [ext_resource type="AudioStream" uid="uid://dh2nta5hccimr" path="res://sfx/sound library/Damage.wav" id="2_g3j3g"]
 
@@ -15,6 +16,7 @@ image = SubResource("AtlasTexture_jtax8")
 size = Vector2i(128, 64)
 click_sound = ExtResource("1_6u01s")
 error_sound = ExtResource("2_g3j3g")
+eat_sound = ExtResource("2_5so6b")
 money_input = 50.0
 food_output = 100.0
 clickable = true

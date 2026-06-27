@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://xqh2nss68w0x" path="res://scenes/objects/main_wheel.tscn" id="1_nohi8"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_6fuox"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_1dxvh"]
+[ext_resource type="AudioStream" uid="uid://cwkbcj0sug4hd" path="res://sfx/hamster factory sounds/munch.wav" id="3_j54c4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_higxx"]
 atlas = ExtResource("1_n4ilh")
@@ -17,6 +18,7 @@ animation_scene = ExtResource("1_nohi8")
 size = Vector2i(128, 128)
 click_sound = ExtResource("1_6fuox")
 placement_sound = ExtResource("3_1dxvh")
+eat_sound = ExtResource("3_j54c4")
 HP_output = 1.0
 clickable = true
 indestructible = true
