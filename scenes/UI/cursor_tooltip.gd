@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	var tooltip_strings: Array[String] = game.get_tooltip()
 	
 	# centered on mouse by default
-	global_position = get_global_mouse_position() - tooltip_container.get_combined_minimum_size() * 0.5
+	global_position = get_global_mouse_position() - Vector2(tooltip_container.get_combined_minimum_size().x * 0.5, tooltip_container.get_combined_minimum_size().y * 1.0)
 	# Reject going past screen vertically
 	if global_position.y < 10:
 		global_position.y = 10
