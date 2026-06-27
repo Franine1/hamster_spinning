@@ -11,6 +11,22 @@
 [ext_resource type="AudioStream" uid="uid://dickypdm22o8r" path="res://music/The Cats Meow.wav" id="9_wbmm5"]
 [ext_resource type="AudioStream" uid="uid://bi0vgm84f6vxb" path="res://music/Falling Blocks.wav" id="10_bqvk7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34ocb"]
+content_margin_left = 10.0
+content_margin_top = 1.0
+content_margin_right = 10.0
+content_margin_bottom = 1.0
+bg_color = Color(0.6772323, 0.5983915, 0.59208244, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133364, 0.133364, 0.133364, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_57qmd"]
 shuffle = true
 fade_time = 1.0
@@ -96,6 +112,39 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="TileMapLayer" parent="playable windows/game container/game viewport" unique_id=1186091628 instance=ExtResource("1_01db0")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="playable windows/game container/game viewport" unique_id=1472483077]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="playable windows/game container/game viewport/CanvasLayer" unique_id=460154666]
+top_level = true
+offset_left = -540.0
+offset_top = 111.0
+offset_right = -420.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_34ocb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="playable windows/game container/game viewport/CanvasLayer/PanelContainer" unique_id=832904027]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="playable windows/game container/game viewport/CanvasLayer/PanelContainer/HBoxContainer" unique_id=1566277544]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.12005126, 0.12005126, 0.12005126, 1)
+text = "FOOD: "
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FoodPillText" type="RichTextLabel" parent="playable windows/game container/game viewport/CanvasLayer/PanelContainer/HBoxContainer" unique_id=1673785985]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.12005126, 0.12005126, 0.12005126, 1)
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="shop container" type="SubViewportContainer" parent="playable windows" unique_id=1643333875]
 unique_name_in_owner = true
