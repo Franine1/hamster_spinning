@@ -11,16 +11,17 @@ func _process(_delta: float) -> void:
 		game_animation(time)
 
 
-func game_animation(time: float) -> void:
+func game_animation(time: float, extra_speed: float = 1.0) -> void:
 	var my_time = time + delta_offset
+	var spd_bonus: float = extra_speed * speed_scale
 	
 	var frame_total: int = sprite_frames.get_frame_count(animation)
-	var duration: float = sprite_frames.get_animation_speed(animation)
+	var duration: float = sprite_frames.get_animation_speed(animation) * spd_bonus
 	frame = clamp(floori(modulus(my_time,frame_total / duration)*duration),0,frame_total)
 	
 	for child in get_children():
 		if child is AnimationManager:
-			child.game_animation(my_time)
+			child.game_animation(my_time,spd_bonus)
 	
 
 

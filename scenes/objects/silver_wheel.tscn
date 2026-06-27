@@ -6,7 +6,7 @@
 [node name="AnimationManager" type="AnimatedSprite2D" unique_id=806687054]
 sprite_frames = ExtResource("1_8040v")
 animation = &"silver"
-speed_scale = 2.0
+speed_scale = 1.6
 script = ExtResource("2_ylky3")
 metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
 

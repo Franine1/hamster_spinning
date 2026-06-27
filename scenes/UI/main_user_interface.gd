@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 	%food_value.text = str(snapped(game.get_food(),0.1))
 	%HP_rate.text = str(snapped(game.get_HP_rate(),0.1)) + " / s"
 	%money_rate.text = str(snapped(game.get_money_rate(),0.1)) + " / s"
-	%food_rate.text = str(snapped(game.get_food_rate(),0.1)) + " / s"
+	%food_rate.text = str(snapped(game.get_food_rate()+game.held_food(),0.1)) + " / s"
