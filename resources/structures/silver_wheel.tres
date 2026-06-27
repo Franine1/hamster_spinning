@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfmxiukl4g16d" path="res://assets/sprites/SilverWheelSpritesheet.PNG" id="2_s61y8"]
 [ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_8coh5"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_ru0ng"]
+[ext_resource type="AudioStream" uid="uid://cwkbcj0sug4hd" path="res://sfx/hamster factory sounds/munch.wav" id="3_wn1p0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xq0c"]
 atlas = ExtResource("2_s61y8")
@@ -19,6 +20,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_s61y8")
 placement_sound = ExtResource("3_ru0ng")
 error_sound = ExtResource("3_8coh5")
+eat_sound = ExtResource("3_wn1p0")
 food_input = 2.0
 max_food_storage = 90.0
 HP_output = 6.0

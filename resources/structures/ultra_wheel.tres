@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://d3ixixddcfd02" path="res://sfx/hamster factory sounds/squeak.wav" id="1_uant8"]
 [ext_resource type="Texture2D" uid="uid://c5wgdjgnln3cs" path="res://assets/sprites/UltraWheelSpritesheet.PNG" id="2_uant8"]
 [ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_8cntp"]
+[ext_resource type="AudioStream" uid="uid://cwkbcj0sug4hd" path="res://sfx/hamster factory sounds/munch.wav" id="3_q35kj"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_wypm6"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_8cntp"]
 
@@ -19,6 +20,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_uant8")
 placement_sound = ExtResource("3_wypm6")
 error_sound = ExtResource("3_8cntp")
+eat_sound = ExtResource("3_q35kj")
 food_input = 8.0
 max_food_storage = 240.0
 HP_output = 15.0

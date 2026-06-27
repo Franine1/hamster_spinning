@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://csuxemskxtfg6" path="res://scenes/objects/copper_wheel.tscn" id="1_x3845"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_4a1u8"]
 [ext_resource type="Texture2D" uid="uid://2tx216gck23t" path="res://assets/sprites/CopperWheelSpritesheet.PNG" id="2_x3845"]
+[ext_resource type="AudioStream" uid="uid://cwkbcj0sug4hd" path="res://sfx/hamster factory sounds/munch.wav" id="3_2u7d1"]
 [ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_q2k5s"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_tac41"]
 
@@ -19,6 +20,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_5dflb")
 placement_sound = ExtResource("3_tac41")
 error_sound = ExtResource("3_q2k5s")
+eat_sound = ExtResource("3_2u7d1")
 food_input = 1.0
 max_food_storage = 50.0
 HP_output = 3.0

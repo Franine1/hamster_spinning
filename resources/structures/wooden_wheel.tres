@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://7tnthluyt7po" path="res://assets/sprites/WoodWheelSpritesheet.PNG" id="2_pbnjk"]
 [ext_resource type="AudioStream" uid="uid://3uwsiiq502l8" path="res://sfx/satellite sounds/text noise.wav" id="3_ailpf"]
 [ext_resource type="AudioStream" uid="uid://chwdf5ywbm2lo" path="res://sfx/satellite sounds/coins.wav" id="3_lb0qm"]
+[ext_resource type="AudioStream" uid="uid://cwkbcj0sug4hd" path="res://sfx/hamster factory sounds/munch.wav" id="3_lwmju"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="4_ailpf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhk1s"]
@@ -19,6 +20,7 @@ size = Vector2i(128, 128)
 click_sound = ExtResource("1_fpxx1")
 placement_sound = ExtResource("3_lb0qm")
 error_sound = ExtResource("3_ailpf")
+eat_sound = ExtResource("3_lwmju")
 food_input = 0.5
 max_food_storage = 30.0
 HP_output = 1.0
