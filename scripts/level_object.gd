@@ -58,6 +58,9 @@ func terminate() -> void:
 	queue_free()
 
 
+
+
+
 ## Corrects the sprite2D and collision shape based on the input structure
 func refresh(input: Structure = template, use_animation: bool = false) -> void:
 	template = input
@@ -81,13 +84,19 @@ func refresh(input: Structure = template, use_animation: bool = false) -> void:
 		add_sibling.call_deferred(sprite)
 		
 	
+	sprite.use_parent_material = true
+	
 	if placement_mode == mode.HOVER:
 		click_player.stream = template.placement_sound
 	else:
 		click_player.stream = template.click_sound
+		
+		if template.recolor != null:
+			sprite.use_parent_material = false
+			sprite.material = template.recolor
+			print("found")
 	
 	var bounds = template.size
-	sprite.use_parent_material = true
 	
 	
 	if sprite is Sprite2D:
@@ -199,6 +208,7 @@ func _process(delta: float) -> void:
 						
 						var temp = self.duplicate()
 						temp.placement_mode = mode.PLACED
+						
 						if get_parent() is CanvasGroup:
 							get_parent().add_sibling(temp)
 						else:
