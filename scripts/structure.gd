@@ -38,6 +38,7 @@ extends Resource
 @export var tooltip_hint: String = ""
 @export var tier: int = 0
 @export var upgrade_tree: Array[int] = []
+@export var purchase_hints: Array[String] = []
 
 
 enum material_type {

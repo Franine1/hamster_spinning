@@ -119,3 +119,29 @@ stream = SubResource("AudioStreamPlaylist_57qmd")
 volume_db = -10.0
 autoplay = true
 bus = &"Music"
+
+[node name="victory_container" type="PanelContainer" parent="." unique_id=661637916]
+unique_name_in_owner = true
+visible = false
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -60.0
+offset_right = 200.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="victory_container" unique_id=2093101703]
+layout_mode = 2
+text = "Congratulations on escaping the factory!
+Thanks for playing!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

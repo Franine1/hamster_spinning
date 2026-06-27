@@ -4,6 +4,7 @@ extends Control
 
 
 var current_state: state = state.GAME
+var victory_countdown: float = 0.0
 
 @onready var game_VP: SubViewport = %"game viewport"
 @onready var shop_VP: SubViewport = %"shop viewport"
@@ -15,8 +16,23 @@ enum state {
 }
 
 
+func _ready() -> void:
+	var game: GameData = GameData.get_game()
+	
+	game.victory.connect(react_to_victory)
+
+
+func react_to_victory() -> void:
+	current_state = state.GAME
+	%victory_container.show()
+	victory_countdown = 0.75
+
 func _process(delta: float) -> void:
 	var game: GameData = GameData.get_game()
+	
+	victory_countdown -= delta
+	if victory_countdown <= 0.0 and Input.is_anything_pressed():
+		%victory_container.hide()
 	
 	if Input.is_action_just_pressed("Switch Screen"):
 		match current_state:

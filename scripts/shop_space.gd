@@ -118,8 +118,12 @@ func _process(_delta: float) -> void:
 			var bp: Structure = allowed_structures[linked_list[id]]
 			var cost: Vector3 = bp.cost()
 			if Structure.affordable(cost):
-				Structure.expend(cost)
-				game.set_blueprint(bp)
+				if bp.purchase_hints.has("win"):
+					remove_item(id)
+					game.declare_victory()
+				else:
+					Structure.expend(cost)
+					game.set_blueprint(bp)
 			else:
 				# cannot afford structure
 				pass
