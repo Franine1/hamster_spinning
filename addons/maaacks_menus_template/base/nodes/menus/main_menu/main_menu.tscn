@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="4_l1ebe"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/nodes/music_players/background_music_player.tscn" id="4_w8sbm"]
 [ext_resource type="AudioStream" uid="uid://c6i808mai6blb" path="res://music/yowie.wav" id="5_7hknb"]
-[ext_resource type="Texture2D" uid="uid://dvktbnvvf6nhd" path="res://assets/IMG_6614.PNG" id="6_3yeod"]
+[ext_resource type="Texture2D" uid="uid://dpvx12ioyvv3g" path="res://assets/hamster_image.png" id="6_3yeod"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_menus_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="6_bs342"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_menus_template/base/nodes/labels/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_menus_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="7_im16j"]
@@ -64,6 +64,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Hamster Factory"
 horizontal_alignment = 1
@@ -84,6 +85,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 34.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "By: Siglo Studios"
 horizontal_alignment = 1
