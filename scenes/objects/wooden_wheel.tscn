@@ -14,4 +14,5 @@ metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
 sprite_frames = ExtResource("1_u8v8y")
 animation = &"worker"
 script = ExtResource("8_2ovpy")
+alt_animation = "worker"
 metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
