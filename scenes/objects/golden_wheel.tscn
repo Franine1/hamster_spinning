@@ -15,4 +15,5 @@ sprite_frames = ExtResource("1_f0d2b")
 animation = &"hamster"
 speed_scale = 2.0
 script = ExtResource("2_enxjl")
+alt_animation = "worker"
 metadata/_custom_type_script = "uid://cxaq8c2i7wisi"

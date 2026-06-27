@@ -254,6 +254,8 @@ func _process(delta: float) -> void:
 			modulate = Color(1.0,1.0,1.0,1.0) if template.do_visibility else Color(1.0,1.0,1.0,0.0)
 			sprite.modulate = modulate
 			
+			if sprite is AnimationManager:
+				sprite.alt_condition(!template.clickable)
 			
 			var hovering: bool = contacts(mouse_pos) and game.get_blueprint() == null
 			
@@ -281,6 +283,9 @@ func _process(delta: float) -> void:
 			
 			if template.constant_output:
 				output = transact_resources(delta)
+				
+				if sprite is AnimationManager:
+					sprite.start(output >= 0.05)
 			
 			
 			if hovering:

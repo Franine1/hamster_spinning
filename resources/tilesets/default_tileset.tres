@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://msv55oeluext" path="res://assets/floor_temporary.tres" id="1_d1qbg"]
 [ext_resource type="Texture2D" uid="uid://bt73jt8tglwt0" path="res://assets/wall_temporary.tres" id="2_bqwvs"]
+[ext_resource type="Texture2D" uid="uid://c1ahe1xqg7msh" path="res://assets/brick_tileset (1).png" id="3_ykdsg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqwvs"]
 texture = ExtResource("1_d1qbg")
@@ -13,7 +14,25 @@ texture = ExtResource("2_bqwvs")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01rjr"]
+texture = ExtResource("3_ykdsg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_bqwvs")
 sources/1 = SubResource("TileSetAtlasSource_ykdsg")
+sources/2 = SubResource("TileSetAtlasSource_01rjr")

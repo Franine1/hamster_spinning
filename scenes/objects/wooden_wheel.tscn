@@ -13,6 +13,6 @@ metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
 [node name="AnimationManager" type="AnimatedSprite2D" parent="." unique_id=906381787]
 sprite_frames = ExtResource("1_u8v8y")
 animation = &"worker"
-speed_scale = 2.0
 script = ExtResource("8_2ovpy")
+alt_animation = "worker"
 metadata/_custom_type_script = "uid://cxaq8c2i7wisi"

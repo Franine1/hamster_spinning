@@ -6,7 +6,7 @@
 [node name="AnimationManager" type="AnimatedSprite2D" unique_id=806687054]
 sprite_frames = ExtResource("1_w7vq6")
 animation = &"copper"
-speed_scale = 2.0
+speed_scale = 1.25
 script = ExtResource("2_ehdls")
 metadata/_custom_type_script = "uid://cxaq8c2i7wisi"
 
@@ -15,4 +15,5 @@ sprite_frames = ExtResource("1_w7vq6")
 animation = &"hamster"
 speed_scale = 2.0
 script = ExtResource("2_ehdls")
+alt_animation = "worker"
 metadata/_custom_type_script = "uid://cxaq8c2i7wisi"

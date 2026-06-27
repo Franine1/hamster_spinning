@@ -221,15 +221,16 @@ func is_unlocked(input: Structure) -> bool:
 
 func grab_food() -> void:
 	food_in_hand = food
-	set_food(0.0)
+	food = 0.0
 
 func release_food() -> void:
-	change_food(food_in_hand)
+	food = food_in_hand
 	food_in_hand = 0.0
 
 func take_food(amount: float) -> float:
 	var reduction = min(food_in_hand,amount)
 	food_in_hand -= reduction
+	record_food(-reduction,Time.get_unix_time_from_system())
 	return reduction
 
 func held_food() -> float:
