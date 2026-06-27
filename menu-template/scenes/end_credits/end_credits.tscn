@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://ophp3gnul2ar"]
 
-[ext_resource type="PackedScene" path="res://menu-template/scenes/credits/scrolling_credits.tscn" id="1_18xbb"]
-[ext_resource type="Script" path="res://menu-template/scenes/end_credits/end_credits.gd" id="2_dmmm4"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_menus_template/base/nodes/music_players/background_music_player.tscn" id="3_72lxv"]
-[ext_resource type="Script" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="4_gn38e"]
+[ext_resource type="PackedScene" uid="uid://c0artji26lson" path="res://menu-template/scenes/credits/scrolling_credits.tscn" id="1_18xbb"]
+[ext_resource type="Script" uid="uid://d2mvbvwa6v25n" path="res://menu-template/scenes/end_credits/end_credits.gd" id="2_dmmm4"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/nodes/music_players/background_music_player.tscn" id="3_72lxv"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="4_gn38e"]
 
 [node name="EndCredits" unique_id=613298766 instance=ExtResource("1_18xbb")]
 script = ExtResource("2_dmmm4")
 main_menu_scene_path = ""
 force_mouse_mode_visible = false
+scroll_paused = true
 
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1411252862 instance=ExtResource("3_72lxv")]
 
@@ -31,6 +32,62 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ScrollContainer" parent="." index="3" unique_id=1039720129]
+scroll_vertical = 2050
+
+[node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="0" unique_id=1552560353]
+custom_minimum_size = Vector2(0, 648)
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="1" unique_id=1486745388]
+custom_minimum_size = Vector2(1152, 0)
+text = "[font_size=48]Collaborators[/font_size]
+
+[font_size=32]Developers[/font_size]
+[url=https://franine1.itch.io/]Matthew Lisko[/url]
+[url=https://xenoyle.itch.io/]Connor Floyd[/url]
+[url=https://rune123.itch.io/]James Plant[/url]
+
+[font_size=32]Artists[/font_size]
+[url=https://www.instagram.com/starbbeey?igsh=ZjVqM2d2cW5tdnlt]Abbey Pierce[/url]
+
+[font_size=32]Music and SFX[/font_size]
+[url=https://rune123.itch.io/]James Plant[/url]
+
+[font_size=48]Sourced[/font_size]
+[font_size=32]Asset Type[/font_size]
+[font_size=24]Use Case[/font_size]
+Author: [url=]Name[/url]  
+Source: [url=]Domain : webpage.html[/url]  
+License: [url=]License[/url]
+
+[font_size=24]Godot Engine Logo[/font_size]
+Author: Andrea Calabró  
+Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///menu-template/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Godot Menus Template[/font_size]
+[img=80]res:///menu-template/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Menus-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Menus-Template]github: Godot-Menus-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Git[/font_size]
+[img=80]res:///menu-template/assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+"
+
+[node name="FooterSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="2" unique_id=1703782196]
+custom_minimum_size = Vector2(0, 648)
+
 [node name="CenterContainer" type="CenterContainer" parent="." index="4" unique_id=535959837]
 layout_mode = 0
 anchor_right = 1.0
@@ -41,7 +98,6 @@ mouse_filter = 2
 
 [node name="EndMessagePanel" type="Panel" parent="CenterContainer" index="0" unique_id=680051131]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(360, 120)
 layout_mode = 2
 

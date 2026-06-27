@@ -27,7 +27,7 @@ func _ready() -> void:
 func react_to_victory() -> void:
 	current_state = state.GAME
 	%victory_container.show()
-	victory_countdown = 0.75
+	victory_countdown = 10
 
 func _process(delta: float) -> void:
 	var game: GameData = GameData.get_game()
