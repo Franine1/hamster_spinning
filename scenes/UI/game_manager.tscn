@@ -130,6 +130,7 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="playable windows/game container/game viewport/CanvasLayer/PanelContainer/HBoxContainer" unique_id=1566277544]
 layout_mode = 2
+theme = ExtResource("1_eka2i")
 theme_override_colors/default_color = Color(0.12005126, 0.12005126, 0.12005126, 1)
 text = "FOOD: "
 fit_content = true
@@ -140,6 +141,7 @@ vertical_alignment = 1
 [node name="FoodPillText" type="RichTextLabel" parent="playable windows/game container/game viewport/CanvasLayer/PanelContainer/HBoxContainer" unique_id=1673785985]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("1_eka2i")
 theme_override_colors/default_color = Color(0.12005126, 0.12005126, 0.12005126, 1)
 fit_content = true
 autowrap_mode = 0

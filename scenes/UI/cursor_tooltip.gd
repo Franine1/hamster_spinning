@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 		global_position.x = get_viewport_rect().size.x - tooltip_container.get_combined_minimum_size().x - 10
 	
 	
+	%food_particles.global_position = get_global_mouse_position()
 	
 	fix_textboxes(tooltip_strings)
 	
