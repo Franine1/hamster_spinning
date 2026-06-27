@@ -27,6 +27,7 @@ var sprite
 var placement_offset: Vector2 = Vector2.ZERO
 var click_player: AudioStreamPlayer
 var error_player: AudioStreamPlayer
+var eat_player: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -39,6 +40,8 @@ func _ready() -> void:
 	add_child(click_player)
 	error_player = AudioStreamPlayer.new()
 	add_child(error_player)
+	eat_player = AudioStreamPlayer.new()
+	add_child(eat_player)
 	##audio click
 	collider = CollisionShape2D.new()
 	add_child(collider)
@@ -294,10 +297,10 @@ func _process(delta: float) -> void:
 
 						# Play food sound
 						if template.eat_sound:
-							click_player.stream = template.eat_sound
-							click_player.volume_db = -8
-							click_player.pitch_scale = randf_range(0.95, 1.05)
-							click_player.play()
+							eat_player.stream = template.eat_sound
+							eat_player.volume_db = -8
+							eat_player.pitch_scale = randf_range(0.95, 1.05)
+							eat_player.play()
 
 				
 				
