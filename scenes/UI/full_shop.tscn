@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ey3fom8etsq0"]
 
+[ext_resource type="Script" uid="uid://cjmmhbp1b5312" path="res://addons/StyleboxFancy/StyleBorder.gd" id="1_3o0oa"]
 [ext_resource type="FontFile" uid="uid://dm87sb8rsofaa" path="res://assets/fonts/ngaco/Ngaco.ttf" id="1_i5qxm"]
 [ext_resource type="PackedScene" uid="uid://ktn7as76xyyk" path="res://scenes/UI/shop_space.tscn" id="1_pqk88"]
+[ext_resource type="Script" uid="uid://bkl6g25jwb47h" path="res://addons/StyleboxFancy/StyleBoxFancy.gd" id="2_rava5"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_tqonu"]
 [ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/wooden_wheel.tres" id="4_7pl7n"]
 [ext_resource type="Resource" uid="uid://c81ykxr2treg0" path="res://resources/structures/copper_wheel.tres" id="4_80q0p"]
@@ -16,16 +18,39 @@
 [ext_resource type="Resource" uid="uid://dxmnh4lusnwbm" path="res://resources/structures/escape.tres" id="12_qkc7e"]
 [ext_resource type="Resource" uid="uid://crjrdtudy3xen" path="res://resources/structures/autofeeder.tres" id="13_ylnfc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylnfc"]
+[sub_resource type="Resource" id="Resource_e4hp0"]
+script = ExtResource("1_3o0oa")
+color = Color(0.7784455, 0.7784455, 0.7784455, 1)
+blend = true
+width_bottom = 5
+metadata/_custom_type_script = "uid://cjmmhbp1b5312"
+
+[sub_resource type="StyleBox" id="StyleBox_c7qjb"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = 5.0
+content_margin_right = -1.0
+content_margin_bottom = 5.0
+script = ExtResource("2_rava5")
+color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+borders = Array[ExtResource("1_3o0oa")]([SubResource("Resource_e4hp0")])
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+shadow_blur = 0
+
+[sub_resource type="StyleBox" id="StyleBox_528wa"]
+resource_local_to_scene = false
+resource_name = ""
 content_margin_left = 15.0
 content_margin_top = 15.0
 content_margin_right = 15.0
 content_margin_bottom = 15.0
-bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
+script = ExtResource("2_rava5")
+color = Color(0.17254902, 0.17254902, 0.17254902, 1)
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+shadow_blur = 0
 
 [node name="full shop" type="Control" unique_id=204616710]
 layout_mode = 3
@@ -50,17 +75,24 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=686185942]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 
 [node name="ShopContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=12755224]
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
+theme_override_constants/separation = 10
 
 [node name="ShopWheelsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ShopContainer" unique_id=1393499943]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopWheelsContainer" unique_id=950671259]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopWheelsContainer" unique_id=1106615832]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_c7qjb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopWheelsContainer/PanelContainer" unique_id=950671259]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.832902, 0.83290213, 0.8329019, 1)
 theme_override_fonts/normal_font = ExtResource("1_i5qxm")
 theme_override_font_sizes/normal_font_size = 40
 text = "Wheels"
@@ -75,7 +107,8 @@ custom_minimum_size = Vector2(0, 170)
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ylnfc")
+theme_override_constants/h_separation = 10
+theme_override_styles/panel = SubResource("StyleBox_528wa")
 auto_width = true
 auto_height = true
 allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("4_7pl7n"), ExtResource("4_80q0p"), ExtResource("5_7pl7n"), ExtResource("6_80q0p"), ExtResource("7_80q0p")])
@@ -85,8 +118,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopPrintersContainer" unique_id=1839432444]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopPrintersContainer" unique_id=520446055]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_c7qjb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopPrintersContainer/PanelContainer" unique_id=1839432444]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.832902, 0.83290213, 0.8329019, 1)
 theme_override_fonts/normal_font = ExtResource("1_i5qxm")
 theme_override_font_sizes/normal_font_size = 40
 text = "Printers"
@@ -99,7 +137,8 @@ vertical_alignment = 2
 [node name="PrinterShopSpace" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopPrintersContainer" unique_id=104941021 instance=ExtResource("1_pqk88")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ylnfc")
+theme_override_constants/h_separation = 10
+theme_override_styles/panel = SubResource("StyleBox_528wa")
 auto_width = true
 allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("5_80q0p"), ExtResource("9_2gxea"), ExtResource("10_qkc7e"), ExtResource("11_j2cxe")])
 
@@ -113,8 +152,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesContainer" unique_id=1074395229]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesContainer" unique_id=1639007950]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_c7qjb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesContainer/PanelContainer" unique_id=1074395229]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.832902, 0.83290213, 0.8329019, 1)
 theme_override_fonts/normal_font = ExtResource("1_i5qxm")
 theme_override_font_sizes/normal_font_size = 40
 text = "Upgrades"
@@ -127,6 +171,6 @@ vertical_alignment = 2
 [node name="UpgradeShopSpace" parent="VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesContainer" unique_id=516955586 instance=ExtResource("1_pqk88")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ylnfc")
-auto_width = true
-allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("9_heyfk"), ExtResource("12_qkc7e"), ExtResource("13_ylnfc")])
+theme_override_constants/h_separation = 10
+theme_override_styles/panel = SubResource("StyleBox_528wa")
+allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("9_heyfk"), ExtResource("13_ylnfc"), ExtResource("12_qkc7e")])
