@@ -16,4 +16,5 @@ error_sound = ExtResource("1_pj8th")
 clickable = true
 constant_output = false
 partial_output = false
+upgrade_tree = Array[int]([4])
 metadata/_custom_type_script = "uid://c4vrf4ltxjd3y"

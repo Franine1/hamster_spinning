@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ey3fom8etsq0"]
 
+[ext_resource type="FontFile" uid="uid://dm87sb8rsofaa" path="res://assets/fonts/ngaco/Ngaco.ttf" id="1_i5qxm"]
 [ext_resource type="PackedScene" uid="uid://ktn7as76xyyk" path="res://scenes/UI/shop_space.tscn" id="1_pqk88"]
 [ext_resource type="Script" uid="uid://c4vrf4ltxjd3y" path="res://scripts/structure.gd" id="2_tqonu"]
 [ext_resource type="Resource" uid="uid://bsma6cyp58v2d" path="res://resources/structures/wooden_wheel.tres" id="4_7pl7n"]
@@ -13,6 +14,18 @@
 [ext_resource type="Resource" uid="uid://dt528deln8fvc" path="res://resources/structures/money_printer_v3.tres" id="10_qkc7e"]
 [ext_resource type="Resource" uid="uid://cuh6sgktg2se6" path="res://resources/structures/money_printer_v4.tres" id="11_j2cxe"]
 [ext_resource type="Resource" uid="uid://dxmnh4lusnwbm" path="res://resources/structures/escape.tres" id="12_qkc7e"]
+[ext_resource type="Resource" uid="uid://crjrdtudy3xen" path="res://resources/structures/autofeeder.tres" id="13_ylnfc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylnfc"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="full shop" type="Control" unique_id=204616710]
 layout_mode = 3
@@ -22,7 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=686185942]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=69236191]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,26 +43,90 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=12755224]
+[node name="UISpaceControlNode" type="Control" parent="VBoxContainer" unique_id=1419740445]
+custom_minimum_size = Vector2(0, 79)
 layout_mode = 2
-size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=686185942]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=12755224]
+layout_mode = 2
 size_flags_stretch_ratio = 4.0
 
-[node name="ShopSpace" parent="HBoxContainer/VBoxContainer" unique_id=825938650 instance=ExtResource("1_pqk88")]
+[node name="ShopWheelsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ShopContainer" unique_id=1393499943]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopWheelsContainer" unique_id=950671259]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_i5qxm")
+theme_override_font_sizes/normal_font_size = 40
+text = "Wheels"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="WheelShopSpace" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopWheelsContainer" unique_id=825938650 instance=ExtResource("1_pqk88")]
+custom_minimum_size = Vector2(0, 170)
+clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylnfc")
+auto_width = true
+auto_height = true
 allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("4_7pl7n"), ExtResource("4_80q0p"), ExtResource("5_7pl7n"), ExtResource("6_80q0p"), ExtResource("7_80q0p")])
 
-[node name="ShopSpace2" parent="HBoxContainer/VBoxContainer" unique_id=104941021 instance=ExtResource("1_pqk88")]
+[node name="ShopPrintersContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ShopContainer" unique_id=236805860]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopPrintersContainer" unique_id=1839432444]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_i5qxm")
+theme_override_font_sizes/normal_font_size = 40
+text = "Printers"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PrinterShopSpace" parent="VBoxContainer/HBoxContainer/ShopContainer/ShopPrintersContainer" unique_id=104941021 instance=ExtResource("1_pqk88")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylnfc")
+auto_width = true
 allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("5_80q0p"), ExtResource("9_2gxea"), ExtResource("10_qkc7e"), ExtResource("11_j2cxe")])
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1325961197]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1325961197]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
 
-[node name="ShopSpace" parent="HBoxContainer/VBoxContainer2" unique_id=516955586 instance=ExtResource("1_pqk88")]
+[node name="UpgradesContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=107551922]
 layout_mode = 2
 size_flags_vertical = 3
-allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("9_heyfk"), ExtResource("12_qkc7e")])
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesContainer" unique_id=1074395229]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_i5qxm")
+theme_override_font_sizes/normal_font_size = 40
+text = "Upgrades"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="UpgradeShopSpace" parent="VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesContainer" unique_id=516955586 instance=ExtResource("1_pqk88")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylnfc")
+auto_width = true
+allowed_structures = Array[ExtResource("2_tqonu")]([ExtResource("9_heyfk"), ExtResource("12_qkc7e"), ExtResource("13_ylnfc")])
